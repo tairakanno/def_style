@@ -1,2 +1,6 @@
 <p><%= @user.nickname %>さんの情報</p>
 <p>レペゼン<%= @user.prefecture.name %></p>
+<% @opuses.each do |opus| %>
+  <p><%= opus.title %></p>
+  <p><%= opus.description %></p>
+<% end %>

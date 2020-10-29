@@ -1,2 +1,8 @@
 <%= link_to current_user.nickname, user_path(current_user.id) %>
 <%= link_to "新規投稿", new_opus_path %>
+
+<% @opuses.each do |opus| %> 
+  <p><%= opus.title %></p>
+  <p><%= opus.description %></p>
+  <p>by<%= link_to opus.user.nickname, user_path(opus.user.id) %></p>
+ <% end %>
