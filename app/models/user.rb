@@ -9,5 +9,5 @@ class User < ApplicationRecord
   validates :nickname, presence: true
   validates :prefecture, presence: true
   validates :prefecture_id, numericality: { other_than: 1 }
-  
+  has_many :opuses
 end
