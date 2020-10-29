@@ -1,8 +1,14 @@
-<%= link_to current_user.nickname, user_path(current_user.id) %>
-<%= link_to "新規投稿", new_opus_path %>
 
+<%= link_to "新規投稿", new_opus_path %>
+<% if user_signed_in? %>
+       <li><%= link_to current_user.nickname, user_path(current_user.id) %></li> 
+       <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li> 
+<% else %>
+      <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+      <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+<% end %>
 <% @opuses.each do |opus| %> 
-  <p><%= opus.title %></p>
-  <p><%= opus.description %></p>
+  <p><%= link_to opus.title, opus_path(opus.id) %></p>
+  <p><%= link_to opus.description, opus_path(opus.id) %></p>
   <p>by<%= link_to opus.user.nickname, user_path(opus.user.id) %></p>
  <% end %>

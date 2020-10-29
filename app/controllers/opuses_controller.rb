@@ -14,6 +14,23 @@ class OpusesController < ApplicationController
       render "new"
     end
   end
+  def edit
+    @opus = Opus.find(params[:id])
+  end
+
+  def update
+    @opus = Opus.find(params[:id])
+    if @opus.update(opus_params)
+      redirect_to action: :show
+    else
+      render action: :edit
+    end
+  end
+  def show
+    @opus = Opus.find(params[:id])
+    @comments = Comment.all
+    @comment = Comment.new
+  end
 
   private
   def opus_params

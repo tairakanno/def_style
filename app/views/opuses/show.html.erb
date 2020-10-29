@@ -1,0 +1,10 @@
+<%= @opus.title %>
+<%= @opus.description %>
+
+<p>by<%= link_to @opus.user.nickname, user_path(@opus.user.id) %></p>
+<% if user_signed_in? && current_user.id == @opus.user.id %>
+        <div class="prototype__manage">
+          <%= link_to "編集する", edit_opus_path(@opus.id), class: :prototype__btn %>
+          <%= link_to "削除する", opus_path(@opus.id), method: :delete, class: :prototype__btn %>
+        </div>
+<% end %>
