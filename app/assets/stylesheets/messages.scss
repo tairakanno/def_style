@@ -1,0 +1,78 @@
+// Place all the styles related to the messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper{
+  display: flex
+}
+.side-bar{
+  width: 250px;
+}
+.chat{
+  width: calc(100vw - 250px);
+  background-color: gray;
+}
+.side-bar-header{
+  display: flex;
+  height: 12vh;
+  background-color: yellowgreen;
+}
+.header-name{
+  width: 15px;
+  height: 40px;
+  background-color: yellow;
+  margin: 10px 10px;
+}
+.create-room{
+  width: 50px;
+  height: 40px;
+  margin: 20px 20px;
+}
+.room{
+  height: 88vh;
+  background-color: violet;
+}
+.chat-header{
+  height: 6vh;
+  background-color: hotpink;
+}
+.chat-main{
+  height: 79vh;
+}
+// .form {
+//   // background-color: #DDDDDD;
+//   height: 90px;
+//   padding: 20px 40px;
+//   display: flex;
+// }
+.form-input{
+  background-color: white;
+  width: 100%;
+  display: flex;
+}
+.form-message{
+  border: none;
+  margin-left: 10px;
+  height: 50px;
+  width: 100%;
+}
+.form-submit{
+  margin-left: 15px;
+  border: none;
+  font-size: 16px;
+  color: white;
+  background-color: #38AEF0;
+  height: 50px;
+  padding: 0 20px;
+}
+.form-image {
+  font-size: 12px;
+  background-color: lightblue;
+  color: white;
+  padding: 12px;
+  width: 60px;
+  margin: 5px 10px;
+  text-align: center;
+}
+.hidden {
+  display: none;
+}

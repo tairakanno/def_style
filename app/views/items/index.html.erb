@@ -1,0 +1,50 @@
+<%= render "shared/header" %>
+<div class="opus-index">
+	<div class="mainimg">
+
+	</div>
+	<div class="concept">
+		<div class="concept-concept">
+			<p>コンセプト</p>
+		</div>
+		<div class="concept-message">
+			<p class="message-out1">つくりたい人とつくりたい作品を</p><br>
+			<p class="message-out2">才能と才能がより繋がりやすく</p><br>
+			<p class="message-out3">無限大の可能性を</p>
+		</div>
+		<script>
+		$('.concept-message').fadeIn(3000);
+		$('.message-out1').fadeIn(5000);
+		$('.message-out2').fadeIn(9000);
+		$('.message-out3').fadeIn(12000);
+		</script>
+
+	</div>
+	  <div class='item-contents'>
+    <h2 class='title'>新着のグッズ</h2>
+    <%= link_to '作品を出品してみる', new_item_path, class: "subtitle" %>
+    
+    <ul class='item-lists'>
+      <% @items.each do |item| %>
+      <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
+      <li class='list'>
+						<%= link_to item_path(item.id) do %>
+						<div class='item-img-content'>
+							<%= image_tag item.image.variant(resize: '500x500'), class: 'item-img' if item.image.attached? %>
+		
+						</div>
+						<div class='item-info'>
+							<h3 class='item-name'>
+								<%= item.name %>
+							</h3>
+							<div class='item-price'>
+								<span><%= item.text %></span>
+							</div>
+						</div>
+						<% end %>
+        
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

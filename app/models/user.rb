@@ -5,9 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
-  
+  belongs_to_active_hash :genre
+  has_many  :comments
+  has_one_attached :image
   validates :nickname, presence: true
   validates :prefecture, presence: true
   validates :prefecture_id, numericality: { other_than: 1 }
+  validates :genre_id,  numericality: { other_than: 1 }
   has_many :opuses
+  has_many :items
+  has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
 end

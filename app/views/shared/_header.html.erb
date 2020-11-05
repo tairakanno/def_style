@@ -1,0 +1,29 @@
+<div id="header">
+	
+	<div id="header-header">
+			<img src="/assets/mainimg.jpg" alt="" id= "main-image" >
+		<script>
+			$('#main-image').fadeIn(4500);
+		</script>
+	</div>
+	<div id="header-footer">
+		<div class="list-box">
+			<%= link_to "共同製作者を探す", root_path, :style=>"color:white;" %>
+		</div>
+		<div class="list-box">
+			<%= link_to "制作物を買う", items_path, :style=>"color:white;" %>
+		</div>
+		<div class="list-box">
+			<%= link_to "DM一覧", "#", :style=>"color:white;" %>
+		</div>
+		<div class="list-box">
+			<%= link_to current_user.nickname, user_path(current_user.id),:style=>"color:white;" %>
+		</div>
+		<div class="list-box">
+			<%= link_to 'ログアウト', destroy_user_session_path, method: :delete, :style=>"color:white;" %>
+		</div>
+	</div>
+	<script>
+		$('.list-box').show('slow')
+	</script>
+</div>

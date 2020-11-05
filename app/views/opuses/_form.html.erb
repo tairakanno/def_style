@@ -1,7 +1,12 @@
-<%= form_with(model: @opus, local: true) do |form| %>
-  <%= render 'layouts/error_messages', model: form.object %>
-  <%# <%= form.text_field :image, placeholder: "Image Url" %> 
-  <%= form.text_area :title, placeholder: "title", rows: "10" %>
-  <%= form.text_area :description, placeholder: "作品への思い", rows: "10" %>
-  <%= form.submit "SEND" %>
+<div class="form">
+</div>
+
+<%= form_with(model: opus, local: true) do |f| %>
+  <%= render '/shared/error_messages', model: f.object %>
+ <%= f.file_field :image, id:"item-image" %>
+ <%= f.text_area :title, placeholder: "title", rows: "10" %>
+  <%= f.text_area :description, placeholder: "作品への思い", rows: "10" %>
+
+<%= f.submit "出品する" ,class:"btn btn-primary" %>
+<%= link_to 'もどる', root_path, class:"back-btn" %>
 <% end %>

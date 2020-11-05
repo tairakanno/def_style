@@ -1,0 +1,29 @@
+#header{
+  height: 65vh;
+  width: 100vw;
+}
+#header-header{
+  height: 50vh;
+}
+#main-image{
+  width: 100vw;
+  height: 50vh;
+  display: none;
+}
+#header-footer{
+  display: flex;
+  height: 15vh;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 8vw;
+  background-color: black;
+}
+.list-box{
+  width: 12vw;
+  height: 10vh;
+  border:solid;
+  border-color: white;
+  text-align: center;
+  display: none;
+  font-family: 'PT Serif', serif;
+}

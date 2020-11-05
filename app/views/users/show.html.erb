@@ -1,7 +1,30 @@
 <p><%= @user.nickname %>さんの情報</p>
 <p>レペゼン<%= @user.prefecture.name %></p>
+<%# <p><%= link_to "直接話してみる", new_user_message_path(@user.id) %></p> %>
 <% @opuses.each do |opus| %>
+<%= link_to opus_path(opus.id) do %>
+  <%= image_tag opus.image.variant(resize: '500x500') %>
   <p><%= opus.title %></p>
   <p><%= opus.description %></p>
+  <% end %>
 <% end %>
 
+
+<h1>ユーザー詳細</h1>
+
+<h2><%= @user.email %></h2>
+
+<% if @user.id == current_user.id %>
+
+<% else %>
+  <% if @isRoom == true %>
+    <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+  <% else %>
+    <%= form_for @room do |f| %>
+      <%= fields_for @entry do |e| %>
+        <%= e.hidden_field :user_id, :value=> @user.id %>
+      <% end %>
+      <%= f.submit "チャットを始める" %>
+    <% end %>
+  <% end %>
+<% end %>

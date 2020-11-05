@@ -1,0 +1,65 @@
+.sign-in-filde{
+ 
+  width: 100vw;
+  height: 100vh;
+}
+.signimage{
+  background-image: url("sign-in.jpg");
+  width: 100vw;
+  height: 100vh;
+  display: none;
+}
+.signimage-header{
+  text-align: center;
+  height: 15vh;
+  width: 100vw;
+  padding-top: 8vh;
+}
+.signimage-p{
+  font-size: 35px;
+  color: white;
+  font-family: 'PT Serif', serif;
+  display: none;
+}
+.sign-in-box{
+  font-family: 'PT Serif', serif;
+  width: 300px;
+  height: 250px;
+  background-color: white;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  display: none;
+  padding-top: 2vh;
+  background-color: darkgray;
+}
+.sign-up-box{
+  font-family: 'PT Serif', serif;
+  width: 300px;
+  height: 430px;
+  background-color: white;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  display: none;
+  padding-top: 2vh;
+  background-color: darkgray;
+}
+.actions{
+  margin-top: 2vh;
+}
+.actions p{
+  color: black;
+}
+/* .signimage p{
+  padding-top: 100px;
+  color: aliceblue;
+  text-align: center;
+} */
+.sign-in-boxs{
+  margin-top: 2vh;
+  display: flex;
+  justify-content: center;
+}

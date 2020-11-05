@@ -1,6 +1,6 @@
 class OpusesController < ApplicationController
   def index
-    @opuses = Opus.all
+    @opuses = Opus.order("created_at DESC")
   end
   def new
     @opus = Opus.new
@@ -28,12 +28,12 @@ class OpusesController < ApplicationController
   end
   def show
     @opus = Opus.find(params[:id])
-    @comments = Comment.all
+    @comments = @opus.comments.order("created_at DESC")
     @comment = Comment.new
   end
 
   private
   def opus_params
-    params.require(:opus).permit(:title, :description).merge(user_id: current_user.id)
+    params.require(:opus).permit(:title, :description, :image).merge(user_id: current_user.id)
   end
 end
