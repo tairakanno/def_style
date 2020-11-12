@@ -1,0 +1,22 @@
+<%= render "shared/header.header" %>
+<div class="user-edit">
+  <div class="user-form">
+      <%= bootstrap_form_with model: @user, local: true do |f| %>
+        <%= render '/shared/error_messages', model: f.object %>
+        <div class="form-group">
+        <%= f.text_field :nickname, placeholder: "nickname", rows: "10" %>
+        </div>
+        
+        <%# <div class="form-group"> %>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}) %>
+        <%# </div> %>
+        <%# <div class="field"> %>
+        <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}) %>
+        <%# </div> %>
+        <%= f.file_field :image %>
+        <%= f.text_area :profile, autofocus: true, placeholder: "profile", rows: "5" %>
+        <button type="submit" class="btn btn-primary">Save</button>
+      <% end %>
+  </div>
+  
+</div>

@@ -1,13 +1,8 @@
 class CommentsController < ApplicationController
   def create
-    # @comment = Comment.new(text: params[:comment][:text])
     @comment = Comment.new(comment_params)
-    if @comment.valid?
-      @comment.save
-      redirect_to "/opuses/#{@comment.opus.id}"
-      # ActionCable.server.broadcast 'comment_channel', content: @comment
-    else
-      render "opeses/show"
+    if @comment.save
+        ActionCable.server.broadcast 'comment_channel', content: @comment
     end
   end
   private

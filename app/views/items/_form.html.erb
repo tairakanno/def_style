@@ -1,80 +1,15 @@
-
-<div class="items-sell-contents">
-  <div class="items-sell-main">
-    <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= form_with model: item, local: true do |f| %>
-
-    <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-    <%= render 'shared/error_messages', model: f.object %>
-    <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
-
-    <%# 出品画像 %>
-    <div class="img-upload">
-      <div class="weight-bold-text">
-        出品画像
-        <span class="indispensable">必須</span>
-      </div>
-      <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
+<%= render "shared/header.header" %>
+<div class="item-form">
+    <div class="item-form-box">
+     <%= bootstrap_form_with model: item, local: true do |f| %>
+        <%= render '/shared/error_messages', model: f.object %>
+        <%= f.text_field :name, placeholder: "title", rows: "10" %>
+        <%= f.text_area :text, placeholder: "text", rows: "6" %>
         <%= f.file_field :image, id:"item-image" %>
-      </div>
+        <%= f.collection_select(:days_to_ship_id, DaysToShip.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+        <%= f.text_field :price, placeholder: "price", rows: "10" %>
+        <%= f.submit "出品する" ,class:"btn btn-primary btn-lg" %>
+      <button type="button" class="btn btn-warning"><%= link_to 'もどる', items_path, class:"btn" %></button>
+      <% end %>
     </div>
-    <%# /出品画像 %>
-    <%# 商品名と商品説明 %>
-    <div class="new-items">
-      <div class="weight-bold-text">
-        商品名
-        <span class="indispensable">必須</span>
-      </div>
-      <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
-      <div class="items-explain">
-        <div class="weight-bold-text">
-          商品の説明
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.text_area :text, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" ,rows:"7" ,maxlength:"1000" %>
-      </div>
-    </div>
-    <%# /商品名と商品説明 %>
-
-    <%# 配送について %>
-        <div class="weight-bold-text">
-          発送までの日数
-          <span class="indispensable">必須</span>
-        
-          <%= f.collection_select(:days_to_ship_id, DaysToShip.all, :id, :name, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
-        </div>
-    <%# /配送について %>
-
-    <%# 販売価格 %>
-    <div class="sell-price">
-      <div class="weight-bold-text question-text">
-        <span>販売価格<br>(¥300〜9,999,999)</span>
-        <a class="question" href="#">?</a>
-      </div>
-      <div>
-        <div class="price-content">
-          <div class="price-text">
-            <span>価格</span>
-            <span class="indispensable">必須</span>
-          </div>
-          <span class="sell-yen">¥</span>
-          <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）300" %>
-        </div>
-      </div>
-    </div>
-    <%# /販売価格 %>
-
-    
-    <%# 下部ボタン %>
-    <div class="sell-btn-contents">
-      <%= f.submit "変更する", class:"sell-btn" %>
-      <%= link_to 'もどる', items_path, class:"back-btn" %>
-    </div>
-    <%# /下部ボタン %>
-    <% end %>
-  </div>
-  
 </div>

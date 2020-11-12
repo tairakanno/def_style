@@ -1,6 +1,56 @@
-<%= render "shared/header" %>
+<%= render "shared/header2" %>
 <div class="opus-index">
 	<div class="mainimg">
+	<div class="mainimg-header">
+			<h2 class="tokutyou">Def-Styleの特徴</h2>
+			<script>
+				$('.tokutyou').fadeIn(5000);
+			</script>
+		</div>
+		<div class="mainimg-footer">
+				<div class="index-box">
+					<div class="index-box-image">
+						<%= link_to root_path do %>
+							<img src="/assets/opus.jpg", alt="", class="index-box-image-box">
+						<% end %>	
+					</div>
+					<div class="index-box-text">
+						<%= link_to root_path do %>
+							<h2 class=link-p>作品紹介</h2><br>
+							<p class=link-p>まだ無名のアーティストにより<br>作られた作品が集まる</p>
+						<% end %>
+					</div>
+				</div>
+				<div class="index-box">
+					<div class="index-box-image">
+						<%= link_to items_path do %>
+							<img src="/assets/item-main.jpg", alt="", class="index-box-image-box">
+						<% end %>
+					</div>
+					<div class="index-box-text">
+						<%= link_to items_path do %>
+							<h2 class=link-p>作品を買う</h2><br>
+							<p class=link-p>創られた作品を購入できる</p>
+						<% end %>
+					</div>
+				</div>
+				<div class="index-box">
+					<div class="index-box-image">
+						<%= link_to "#" do %>
+							<img src="/assets/dm.jpg", alt="", class="index-box-image-box">
+						<% end %>
+					</div>
+					<div class="index-box-text">
+						<%= link_to "#" do %>
+							<h2 class=link-p>DM機能</h2><br>
+							<p class=link-p>Comming Soon</p>
+						<% end %>
+					</div>
+				</div>
+				<script>
+					$('.index-box').show('slow')
+				</script>
+		</div>
 
 	</div>
 	<div class="concept">
@@ -8,9 +58,9 @@
 			<p>コンセプト</p>
 		</div>
 		<div class="concept-message">
-			<p class="message-out1">つくりたい人とつくりたい作品を</p><br>
-			<p class="message-out2">才能と才能がより繋がりやすく</p><br>
-			<p class="message-out3">無限大の可能性を</p>
+			<p class="message-out1">つくった作品を全世界に届ける</p><br>
+			<p class="message-out2">好きなアーティストの作品を</p><br>
+			<p class="message-out3">常に見逃さない</p>
 		</div>
 		<script>
 		$('.concept-message').fadeIn(3000);
@@ -31,7 +81,6 @@
 						<%= link_to item_path(item.id) do %>
 						<div class='item-img-content'>
 							<%= image_tag item.image.variant(resize: '500x500'), class: 'item-img' if item.image.attached? %>
-		
 						</div>
 						<div class='item-info'>
 							<h3 class='item-name'>
@@ -48,3 +97,4 @@
     </ul>
   </div>
 </div>
+<%= render "shared/footer" %>

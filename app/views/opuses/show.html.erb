@@ -1,24 +1,80 @@
-<%= @opus.title %>
-<%= @opus.description %>
-<%= image_tag @opus.image.variant(resize: '500x500') %>
-<p>by<%= link_to @opus.user.nickname, user_path(@opus.user.id) %></p>
-<% if user_signed_in? && current_user.id == @opus.user.id %>
-        <div class="prototype__manage">
-          <%= link_to "編集する", edit_opus_path(@opus.id), class: :prototype__btn %>
-          <%= link_to "削除する", opus_path(@opus.id), method: :delete, class: :prototype__btn %>
+<%= render "shared/header.header" %>
+<div class="opus-show">
+  <div class="opus-show-left">
+    <div class="left">
+      <div class="left-1">
+        <div class="left-1-show">
+        <% if @opus.user.genre.name == 'Graffiti artist' %>
+          <%= image_tag @opus.image.variant(resize: '500x500') %>
+        <% else %>
+          <iframe width="400" height="300" src="https://www.youtube.com/embed/<%= @opus.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <% end %>
         </div>
-<% end %>
-
-<h3>comment</h3>
-<%= form_with model: [@opus, @comment] do |f| %>
-  <%= f.text_field :text %>
-  <%= f.submit '送信' %>
-<% end %>
-
-<%# <div id='messages'> %>
-  <% @comments.each do |comment| %>
-    <p><%= comment.text %></p>
-    <p><%= link_to comment.user.nickname, user_path(comment.user.id)%></p>
-  <% end %>
-
-<%# </div> %>
+          <script>
+            $('.left-1-show').fadeIn(3000);
+         </script>
+      </div>
+        
+      <div class="left-2">
+        <%= @opus.title %>
+      </div>
+      <div class="left-3">
+        <%= @opus.description %>
+      </div>
+      <div>
+      </div class="left-4">
+        <% if user_signed_in? && current_user.id == @opus.user.id %>
+          <div class="prototype__manage">
+          <button type="button" class="btn btn-warning"><%= link_to "編集する", edit_opus_path(@opus.id), class: :prototype_btn %></button>
+          <button type="button" class="btn btn-warning"><%= link_to "削除する", opus_path(@opus.id), method: :delete, class: :prototype__btn %></button>
+          </div>
+        <% end %>
+      </div>
+    
+  </div>
+  <div class="opus-show-comment">
+    <div class="comment">
+      <div class="comment-comment">
+         <div id="comment-message">
+          <% @comments.reverse_each do |message| %>
+              <p><%= message.text %>:by<%= message.user.nickname %> 投稿日時:<%= message.created_at %></p>
+              
+            <% end %>
+         </div> 
+          
+      </div>   
+      <div class="comment-send">
+        <%= bootstrap_form_with model: [@opus,@comment] do |form| %>
+          <%= form.text_field :text %>
+          <button class="btn btn-primary btn-lg">コメント</button>
+          <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="opus-show-user">
+   <div class="show-user">
+   <%= link_to user_path(@opus.user.id) do %>
+    <div class="opus-user-image">
+      <%# <%= image_tag @opus.user.image.variant(resize: '500x500') %> %>
+    </div>
+    <div class="opus-user-nickname">
+      <%# <%= link_to @opus.user.nickname, user_path(@opus.user.id), :style=>"color:white;"  %> %>
+    </div>
+    <div class="opus-user-genre">
+      <%# <p>Genre : <%= @opus.user.genre.name %></p> %>
+    </div>
+    <div class="opus-user-area">
+      <%# <p>Area of ​​activity : <%= @opus.user.prefecture.name %></p> %>
+    </div>
+    <div class="opus-user-profile">
+      <p><%= @opus.user.profile %></p>
+      <button type="button" class="btn btn-warning">Warning</button>
+    </div>
+    <% end %>
+  </div>
+  <script>
+    // $('.opus-show-user').show('slow');
+  </script>
+   </div>
+    
+</div>

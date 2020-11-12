@@ -59,10 +59,10 @@ link{
 }
 .index-box-image{
   height: 35vh;
-  width: 20vw;
+  width: 100%;
 }
 .index-box-image-box{
-  width: 25vw;
+  width: 100%;
   height: 35vh;
 }
 .link-p{
@@ -80,6 +80,7 @@ link{
   margin: 0 auto;
   font-family: 'PT Serif', serif;
   padding-bottom: 5vh;
+  padding-bottom: 10vh;
 }
 .concept-message{
 	color: black;
@@ -135,6 +136,8 @@ link{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  height: 200vh;
+  overflow: scroll;
 }
 
 .item-lists>.list {

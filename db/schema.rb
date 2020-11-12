@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_03_102001) do
+ActiveRecord::Schema.define(version: 2020_11_09_040930) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -65,6 +65,16 @@ ActiveRecord::Schema.define(version: 2020_11_03_102001) do
     t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
+  create_table "item_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "text", null: false
+    t.bigint "user_id"
+    t.bigint "item_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_item_comments_on_item_id"
+    t.index ["user_id"], name: "index_item_comments_on_user_id"
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "name", null: false
     t.text "text", null: false
@@ -90,6 +100,7 @@ ActiveRecord::Schema.define(version: 2020_11_03_102001) do
     t.text "title", null: false
     t.text "description", null: false
     t.bigint "user_id"
+    t.text "youtube_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_opuses_on_user_id"
@@ -116,6 +127,7 @@ ActiveRecord::Schema.define(version: 2020_11_03_102001) do
     t.string "nickname", null: false
     t.integer "prefecture_id", null: false
     t.integer "genre_id", null: false
+    t.text "profile"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -131,6 +143,8 @@ ActiveRecord::Schema.define(version: 2020_11_03_102001) do
   add_foreign_key "comments", "users"
   add_foreign_key "entries", "rooms"
   add_foreign_key "entries", "users"
+  add_foreign_key "item_comments", "items"
+  add_foreign_key "item_comments", "users"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
   add_foreign_key "opuses", "users"
