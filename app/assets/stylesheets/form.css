@@ -1,0 +1,38 @@
+.opus-form{
+  width: 100vw;
+  height: 85vh;
+  background-color: brown;
+  font-family: 'PT Serif', serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.opus-form-box{
+  width: 50%;
+  height: 70%;
+  background-color: cornsilk;
+  padding: 20px;
+}
+.item-form{
+  width: 100vw;
+  height: 85vh;
+  background-color: brown;
+  font-family: 'PT Serif', serif;
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
+}
+.item-form-box{
+  width: 50%;
+  height: 98%;
+  background-color: cornsilk;
+  padding: 20px;
+}
+
+.opus-form-box > .btn-primary{
+  text-align: center;
+}
+.btn{
+  color: white;
+}
+

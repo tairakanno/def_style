@@ -1,0 +1,71 @@
+.user-show{
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: 24px;
+  justify-items: stretch;
+  align-items: stretch;
+  font-family: 'PT Serif', serif;
+  }
+  .user-side-profile{
+    background-color: gray;
+    grid-row:1;
+    grid-column:1;
+    display: grid;
+    grid-template-rows: 40vh 50vh 10vh;
+  }
+  .user-top{
+    grid-row: 1;
+    grid-column: 1;
+    max-height: 100%;
+    background-color: teal;
+    display: none;
+    padding-top: 30px;
+    text-align: center;
+  }
+ .user-main{
+    
+ }
+ .user-nickname{
+   height: 10%;
+   text-align: center;
+ }
+ .user-genre{
+   height: 10%;
+   text-align: center;
+ }
+ .user-area{
+    height: 10%;
+    text-align: center;
+ }
+ .user-profile{
+   height: 70%;
+ }
+ #user-profile-text{
+  padding-left: 10px;
+ }
+ .user-footer {
+   text-align: center;
+   background-color: teal;
+   padding-top: 20px;
+ }
+ .user-show-main-opuses{
+    grid-row: 1/2;
+    grid-column:2/3;
+    background-color: blueviolet;
+ }
+ .user-show-opuses{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+    flex-wrap: wrap;
+ }
+
+ .user-show-opus{
+   width: 27%;
+   height: 27%;
+   background-color: brown;
+   margin-top: 10px;
+ }
+ 

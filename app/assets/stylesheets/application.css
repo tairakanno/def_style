@@ -12,4 +12,43 @@
  *
  *= require_tree .
  *= require_self
- */
+ *= require rails_bootstrap_forms
+*/
+ @import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+
+ /* タブレット表示時 */
+ @media (max-width: 1000px) {
+   p {
+     font-size: 25px
+   }
+ }
+ 
+ /* スマホ表示時 */
+ @media (max-width: 500px) {
+   p {
+     font-size: 20px
+   }
+ }
+
+ .purchase-btn {
+  width: 120px;
+  background: #3ccace;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+}
+
+.purchase-btn-text {
+  color: #fff;
+  display: block;
+  font-size: 18px;
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+
+.purchase-btn-icon {
+  width: 60%;
+}

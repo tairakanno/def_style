@@ -1,0 +1,14 @@
+.user-edit{
+  width: 100vw;
+  height: 85vh;
+  background: brown;
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+}
+.user-form{
+  width: 50%;
+  height: 90%;
+  padding: 20px;
+  background-color: cornsilk;
+}

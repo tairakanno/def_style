@@ -1,0 +1,90 @@
+.opus-show{
+  height: 120vh;
+  width: 100vw;
+  font-family: 'PT Serif', serif;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  row-gap: 1em;
+  grid-column: 10px;
+  background-color: teal;
+}
+.opus-show-left{
+  grid-column: 1/2;
+  padding: 15px;
+}
+.opus-show-left > .left{
+  display: grid;
+  grid-template-rows: 4fr 1fr 3fr 1fr;
+  row-gap: 1em;
+  background-color: white;
+  padding: 20px;
+}
+.left-1{
+  grid-row: 1/2;
+  text-align: center;
+  padding-top: 3vh;
+  
+}
+.left-1-show{
+  display: none;
+}
+.left-2{
+  text-align: center;
+  font-size: 28px;
+  grid-row: 2/3;
+  border-bottom: solid;
+  border-color: black;
+  background-color: white;
+}
+.left-3{
+  grid-row: 3/4;
+  border-bottom: solid;
+  border-color: black;
+  font-size: 17px;
+  background-color: white;
+}
+.left-4{
+  grid-row: 4/5;
+  background-color: white;
+}
+.opus-show-comment{
+  grid-column: 2/3;
+  height: 100%;
+}
+.opus-show-comment > .comment{
+  width: 100%;
+  /* height: 100%; */
+  display: grid;
+  grid-template-rows: 4fr 1fr;
+  padding: 15px;
+  row-gap: 1em;
+  grid-column: 10px;
+  padding: 15px;
+}
+ .comment-comment{
+  grid-row: 1/2;
+  background-color: white;
+  height: 80vh;
+  overflow: scroll;
+}
+.comment > .comment-send{
+  grid-row: 2/3;
+  background-color: white;
+  padding: 20px;
+}
+
+.opus-show-user{
+  grid-column: 3/4;
+  padding: 15px;
+}
+.opus-show-user > .show-user{
+  background-color: white;
+  padding: 20px;
+  display: grid;
+  grid-template-rows: 3fr  3fr 3fr;
+}
+
+.opus-user-genre{
+  
+}

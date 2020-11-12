@@ -1,0 +1,48 @@
+// Place all the styles related to the rooms controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.room{
+  width: 100vw;
+  height: 100vh;
+  background-color: lightgrey;
+  display: flex;
+  padding-bottom: 5vh;
+}
+.side{
+  width: 20vw;
+  background-color:gainsboro;
+}
+.side-header{
+  height: 15vh;
+  background-color:gray;
+}
+.side-header-info{
+  padding-top: 15px;
+  padding-left: 15px;
+  font-family: 'PT Serif', serif;
+}
+
+.main{
+  width: calc(100% - 20vw);
+  background-color: white;
+}
+.main-header{
+  height: 15vh;
+  background-color: gainsboro;
+}
+.main-main{
+  height: 75vh;
+}
+.main-footer{
+  height: 10vh;
+  background-color: gray;
+  display: flex;
+}
+.main-footer-left{
+  width: 85%;
+  height: 10vh;
+}
+.main-footer-right{
+  width: 15%;
+  height: 10vh;
+}

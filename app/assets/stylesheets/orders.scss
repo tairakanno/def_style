@@ -1,0 +1,79 @@
+// Place all the styles related to the orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.order-index{
+  width: 100vw;
+  height: 250vh;
+  background-color: brown;
+  display: flex;
+  padding-top: 50px;
+  justify-content: center;
+  font-family: 'PT Serif', serif;
+}
+.order-boxs{
+  width: 60%;
+  height: 95%;
+  background-color: white;
+  display: grid;
+  grid-template-rows: 3.5fr 5.5fr 1fr;
+  padding: 50px;
+}
+.box-item{
+  grid-row: 1/2;
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr 1fr;
+  text-align: center;
+}
+.order-title{
+  grid-row: 1/2;
+  border-bottom: solid;
+  border-color: black;
+}
+.order-image{
+  grid-row: 2/3;
+  border-bottom: solid;
+  border-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.order-name{
+  grid-row: 3/4;
+  border-bottom: solid;
+  border-color: black;
+  font-size: 40px;
+}
+.order-price{
+  grid-row: 4/5;
+  border-bottom: solid;
+  border-color: black;
+  font-size: 40px;
+}
+.box-info{
+  grid-row: 2/3;
+  padding: 30px 50px;
+  width: 100%;
+  height: 100%;
+}
+.input-expiration-date{
+  width: 20%;
+}
+// .order-card{
+//   background-color: blueviolet;
+//   height: 30%;
+//   display: flex;
+// }
+// .order-address{
+//   height: 70%;
+//   background-color: brown;
+// }
+
+.box-judge{
+  grid-row: 3/4;
+  background-color: yellowgreen;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0px 150px;
+}
+

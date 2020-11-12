@@ -1,0 +1,18 @@
+<div class="opus-form">
+    <div class="opus-form-box">
+     <%= bootstrap_form_with(model: opus, local: true) do |f| %>
+        <%= render '/shared/error_messages', model: f.object %>
+      <%= f.text_field :title, placeholder: "title", rows: "10" %>
+        <%= f.text_area :description, placeholder: "description", rows: "6" %>
+        <% if current_user.genre.name == 'Graffiti artist' %>
+        <%= f.file_field :image, id:"item-image" %>
+        <% else %>
+        <%= f.text_field :youtube_url, placeholder: "url", rows: "10" %>
+        <% end %>
+      <%= f.submit "公開する" ,class:"btn btn-primary btn-lg" %>
+      <button type="button" class="btn btn-warning"><%= link_to 'もどる', root_path, class:"btn" %></button>
+      <% end %>
+    </div>
+</div>
+
+

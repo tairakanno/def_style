@@ -1,0 +1,20 @@
+<div id="header-footer">
+		<div class="list-box">
+			<p><i><%= link_to "共同製作者を探す", root_path, :style=>"color:white;" %></i></p>
+		</div>
+		<div class="list-box">
+			<p><i><%= link_to "制作物を買う", items_path, :style=>"color:white;" %></i></p>
+		</div>
+		<div class="list-box">
+			<p><i><%= link_to "DM一覧", "#", :style=>"color:white;" %></i></p>
+		</div>
+		<div class="list-box">
+			<p><i><%= link_to current_user.nickname, user_path(current_user.id),:style=>"color:white;" %></i></p>
+		</div>
+		<div class="list-box">
+			<p><i><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, :style=>"color:white;" %></i></p>
+		</div>
+	</div>
+	<script>
+		$('.list-box').show('slow')
+	</script>

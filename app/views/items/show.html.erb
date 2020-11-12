@@ -1,0 +1,54 @@
+<%= render "shared/header.header" %>
+<div class="item-show">
+  <div class="item-show-image">
+    <%= image_tag @item.image, size: "540x280" if @item.image.attached? %>
+  </div>
+  <script>
+   $('.item-show-image').fadeIn(3000);
+  </script>
+  <div class="item-show-details">
+    <div class="item-show-name">
+      <th>商品名</th><br>
+      <%= @item.name %>
+    </div>
+    <div class="item-show-text">
+      <th>商品説明</th><br>
+      <%= @item.text %>
+    </div>
+    <div class="item-show-days">
+      <th>発送までの日時</th><br>
+      <%= @item.days_to_ship.name %>
+    </div>
+    <div class="item-show-price">
+      <th>金額</th><br>
+      <p>¥<%= @item.price %></p>
+    </div>
+  </div>
+  <div class="item-show-judge">
+  <% if current_user.id == @item.user.id %>
+    <%= link_to '編集', edit_item_path(@item.id), class:"btn btn-primary btn-lg" %>
+    <%= link_to '削除', item_path(@item.id), method: :delete, class:"btn btn-danger btn-lg" %>
+    <%= link_to 'もどる', items_path, class:"btn btn-warning btn-lg" %>
+  <% else %>
+  <%= link_to '購入', item_orders_path(@item.id), class:"btn btn-danger btn-lg"%>
+  <%= link_to 'もどる', items_path, class:"btn btn-warning btn-lg" %>
+   <% end %>
+  </div>
+  <div class="item-show-comment">
+        <div id='messages'>
+          <% @item_comments.reverse_each do |message| %>
+            <p><%= message.text %>:by<%= message.user.nickname %> 投稿日時:<%= message.created_at %></p>
+            
+          <% end %>
+        </div>
+        
+  </div>
+      <div class="item-show-send">
+          <%= bootstrap_form_with model: [@item,@item_comment] do |form| %>
+          <%= form.text_field :text %>
+          <button class="btn btn-primary btn-lg">コメント</button>
+          <% end %>
+      </div>
+</div>
+
+        
