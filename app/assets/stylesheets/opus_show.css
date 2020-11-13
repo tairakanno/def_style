@@ -1,90 +1,172 @@
-.opus-show{
-  height: 120vh;
+#opus-show{
   width: 100vw;
+  height: 120vh;
+  background-color: teal;
+  padding: 20px;
   font-family: 'PT Serif', serif;
-  padding: 40px;
+}
+#opus-show-boxs{
+  width: 100%;
+  height: 100%;
+  /* background-color: white; */
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
-  row-gap: 1em;
-  grid-column: 10px;
-  background-color: teal;
 }
-.opus-show-left{
-  grid-column: 1/2;
-  padding: 15px;
-}
-.opus-show-left > .left{
-  display: grid;
-  grid-template-rows: 4fr 1fr 3fr 1fr;
-  row-gap: 1em;
-  background-color: white;
+#opus-show-left{
+  grid-row: 1/2;
+  /* background-color: tomato; */
   padding: 20px;
 }
-.left-1{
-  grid-row: 1/2;
-  text-align: center;
-  padding-top: 3vh;
-  
-}
-.left-1-show{
-  display: none;
-}
-.left-2{
-  text-align: center;
-  font-size: 28px;
-  grid-row: 2/3;
-  border-bottom: solid;
-  border-color: black;
-  background-color: white;
-}
-.left-3{
-  grid-row: 3/4;
-  border-bottom: solid;
-  border-color: black;
-  font-size: 17px;
-  background-color: white;
-}
-.left-4{
-  grid-row: 4/5;
-  background-color: white;
-}
-.opus-show-comment{
-  grid-column: 2/3;
-  height: 100%;
-}
-.opus-show-comment > .comment{
+#opus-show-box1{
   width: 100%;
-  /* height: 100%; */
+  height: 100%;
+  background-color: gainsboro;
+  display: grid;
+  grid-template-rows: 3fr 1fr 2fr 1fr;
+}
+#show-left1{
+  padding: 15px;
+}
+#show-opus-image{
+  display: none;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+#show-left2{
+  padding: 25px;
+}
+#left2-title{
+  width: 100%;
+  height: 100%;
+  border-bottom: solid;
+  border-color: black;
+  text-align: center;
+  font-size: 35px;
+}
+#show-left3{
+  padding: 25px;
+}
+#left3-description{
+  width: 100%;
+  height: 100%;
+  border-bottom: solid;
+  border-color: black;
+  font-size: 18px;
+}
+#show-left4{
+  padding: 25px;
+}
+#left4-judge{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#opus-show-middle{
+  grid-column: 2/3;
+  padding: 20px;
+  /* background-color: black; */
+}
+#opus-show-box2{
+  width: 100%;
+  height: 100%;
+  background-color: gainsboro;
   display: grid;
   grid-template-rows: 4fr 1fr;
-  padding: 15px;
-  row-gap: 1em;
-  grid-column: 10px;
+}
+#show-middle1{
+  grid-row: 1/2;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  background-color: gainsboro;
+  border-bottom: solid;
+  border-color: black;
+  /* overflow: scroll; */
+}
+#comment-message{
+  height: 700px;
+  overflow: scroll;
+  transform: translateZ(0);
+}
+#show-middle2{
+  grid-row: 2/3;
+  padding: 20px;
+}
+#opus-show-right{
+  grid-column: 3/4;
+  /* background-color: goldenrod; */
+  padding: 20px;
+}
+#opus-show-box3{
+  background-color: gainsboro;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 2fr 1fr 1fr 1fr 3fr 1fr;
+}
+#right1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 15px;
 }
- .comment-comment{
-  grid-row: 1/2;
-  background-color: white;
-  height: 80vh;
+#right2{
+  padding: 15px;
+  display: flex;
+  align-items: center;
+}
+#right2-nickname{
+  width: 100%;
+  font-size: 20px;
+  border-bottom: solid;
+  border-color: black;
+}
+#right3{
+  padding: 15px;
+  display: flex;
+  align-items: center;
+}
+#right3-genre{
+  width: 100%;
+  font-size: 20px;
+  border-bottom: solid;
+  border-color: black;
+}
+#right4{
+  padding: 15px;
+  display: flex;
+  align-items: center;
+}
+#right4-area{
+  width: 100%;
+  font-size: 20px;
+  border-bottom: solid;
+  border-color: black;
+}
+#right5{
+  padding: 15px;
+  display: flex;
+  align-items: center;
+}
+#right5-profile{
+  width: 300px;
+  height: 250px;
+  font-size: 20px;
+  border-bottom: solid;
+  border-color: black;
+  word-wrap: break-word;
   overflow: scroll;
 }
-.comment > .comment-send{
-  grid-row: 2/3;
-  background-color: white;
-  padding: 20px;
-}
-
-.opus-show-user{
-  grid-column: 3/4;
-  padding: 15px;
-}
-.opus-show-user > .show-user{
-  background-color: white;
-  padding: 20px;
-  display: grid;
-  grid-template-rows: 3fr  3fr 3fr;
-}
-
-.opus-user-genre{
+/* #right5-profile > p.break{
   
+} */
+#right6{
+  padding: 15px;
+  display: flex;
+  align-items: center;
+}
+#right6-btn{
+  width: 100%;
+  text-align: center;
 }

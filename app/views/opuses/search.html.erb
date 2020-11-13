@@ -1,0 +1,42 @@
+<%= render "shared/header.header" %>
+<div class="search">
+  <div class="search-menu">
+    <%= search_form_for @p, url: search_opuses_path do |f| %>
+          <%= f.text_field :description_eq, placeholder: "価値観を検索", class: 'input'%>
+          <button class="btn btn-primary btn-lg">検索</button>
+        <% end %>
+  </div>
+    <div class="search-index">
+        <h1>
+        検索結果
+      </h1>
+      <%# 検索結果の個数で条件分岐 %>
+      <% if @results.length !=0 %>
+        <% @results.each do |opus| %>
+          <div class='resurt-lists'>
+           <div class="resurt-list">
+            <%= link_to opus_path(opus.id) do %>
+                  <div class='resurt-img-content'>
+                    <% if opus.youtube_url.present? %>
+                      <iframe width="300" height="270" src="https://www.youtube.com/embed/<%= opus.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <% else %>
+                      <%= image_tag opus.image.variant(resize: '500x500'), class: 'item-img' if opus.image.attached? %>
+                    <% end %>
+                  </div>
+                    <div class='resurt-name'>
+                      <%= opus.title %>
+                    </div>
+                    <div class="resurt-name">
+                      <p>creatter：<%= opus.user.nickname %></p>
+                    </div>
+                
+            <% end %>
+           </div>
+                
+          </div>
+        <% end %>
+      <% else %>
+        該当する商品はありません
+      <% end %>
+  </div>
+</div>

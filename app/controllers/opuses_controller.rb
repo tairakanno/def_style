@@ -1,6 +1,7 @@
 class OpusesController < ApplicationController
+  before_action :search_product, only: [:index, :search]
   def index
-    @opuses = Opus.order("created_at DESC")
+    @opuses = Opus.includes(:user).order("created_at DESC")
   end
 
   def new
@@ -41,9 +42,15 @@ class OpusesController < ApplicationController
     @comment = Comment.new
     @comments = @opus.comments.includes(:user)
   end
+  def search
+    @results = @p.result.includes(:user)
+  end
 
   private
   def opus_params
     params.require(:opus).permit(:title, :description, :image, :youtube_url).merge(user_id: current_user.id)
+  end
+  def search_product
+    @p = Opus.ransack(params[:q])  # 検索オブジェクトを生成
   end
 end

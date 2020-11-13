@@ -10,6 +10,7 @@ require("channels")
 require("../card")
 require('../item_comment')
 require("jquery")
+require("../search")
 require('bootstrap/dist/js/bootstrap.min.js')
 import 'bootstrap'
 import '../stylesheets/application'

@@ -1,70 +1,80 @@
 <%= render "shared/header.header" %>
-<div class="user-show">
-  <div class="user-side-profile">
-    <div class="user-top">
-        <%= image_tag @user.image, :size => '350x250' %>
-    </div>
-      <script>
-        $('.user-top').show(2000);
-      </script>
-    <div class="user-main">
-      <div class="user-nickname">
-        <p><%= @user.nickname %></p>
-      </div>
-      <div class="user-genre">
-        <p><%= @user.genre.name %></p>
-      </div>
-      <div class="user-area">
-        <p><%= @user.prefecture.name %></p>
-      </div>
-      <div class="user-profile">
-        <p id="user-profile-text"><%= @user.profile %></p>
-      </div>
-    </div>
-    <div class="user-footer">
-      <% if @user.id == current_user.id %>
-        <button type="button" class="btn btn-primary"><%= link_to "編集する", edit_user_path(@user.id), :style=>"color:white;" %></button>
-        <button type="button" class="btn btn-danger"><%= link_to "アカウント削除", user_path(@user.id), method: :delete ,:style=>"color:white;" %></button>
-        <% else %>
+<div id="user-show">
+  <div id="user-show-boxs">
+    <div id="user-show-left">
+      <div id="user-show-left-boxs">
+       <div id="user-left-box1">
+        <div id="user-box1-image">
+         <%= image_tag @user.image, :size => '400x320' %>
+        </div>
+        <script>
+         $('#user-show-left').show('slow');
+         $('#user-box1-image').fadeIn(5000);
+        </script>
+       </div>
+       <div id="user-left-box2">
+        <div id="user-box2-nickname">
+         <p>Artist-Name : <%= @user.nickname %></p>
+        </div>
+       </div>
+       <div id="user-left-box3">
+        <div id="user-box3-genre">
+         <p>Genre : <%= @user.genre.name %></p>
+        </div>
+       </div>
+       <div id="user-left-box4">
+        <div id="user-box4-area">
+          <p>Area of ​​activity : <%= @user.prefecture.name %></p>
+        </div>
+       </div>
+       <div id="user-left-box5">
+          <div id="user-box5-profile">
+            <p><%= @user.profile %></p>
+          </div>
+       </div>
+       <div id="user-left-box6">
+          <div id="user-box6-btns">
+            <% if @user.id == current_user.id %>
+            <%= link_to "編集する", edit_user_path(@user.id), class:"btn btn-primary btn-lg" %>
+            <%= link_to "アカウント削除", user_path(@user.id), method: :delete, class:"btn btn-danger btn-lg"%>
+            <% else %>
 
-        <% if @isRoom == true %>
-          <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
-        <% else %>
-          <%= form_for @room do |f| %>
-            <%= fields_for @entry do |e| %>
-              <%= e.hidden_field :user_id, :value=> @user.id %>
+            <% if @isRoom == true %>
+              <%= link_to "チャットへ", room_path(@roomId), class: "btn btn-primary btn-lg" %>
+            <% else %>
+              <%= form_for @room do |f| %>
+                <%= fields_for @entry do |e| %>
+                  <%= e.hidden_field :user_id, :value=> @user.id %>
+                <% end %>
+                  <button class="btn btn-primary btn-lg">チャットを始める</button>
+                <%# <button type="button" class="btn btn-success"><%= f.submit "チャットを始める" %>
+                
+              <% end %>
             <% end %>
-            <button type="button" class="btn btn-success"><%= f.submit "チャットを始める" %></button>
-            
           <% end %>
-        <% end %>
-      <% end %>
+          </div>
+       </div>
+      </div>
+    </div>
+    <div id="user-show-right">
+      <ul id="user-show-opuses">
+       <% @opuses.each do |opus| %>
+        <li id="user-show-opus">
+       
+          <div id="user-show-opus-top">
+           <% if opus.youtube_url.present? %>
+						<iframe width="270" height="270" src="https://www.youtube.com/embed/<%= opus.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					 <% else %>
+						<%= image_tag opus.image.variant(resize: '500x500'), class: 'item-img' if opus.image.attached? %>
+				   <% end %>
+          </div>
+          <div id="user-show-opus-title">
+            <%= link_to opus.title, opus_path(opus.id), class: "btn btn-light" %>
+          </div>
+        </li>
+       <% end %>
+      </ul>
     </div>
   </div>
-    
-  <div class="user-show-main-opuses">
-  <ul class="user-show-opuses">
-     <% @opuses.each do |opus| %>
-      <li class="user-show-opus">
-        <%= link_to opus_path(opus.id) do %>
-          <% unless opus.youtube_url.nil? %>
-            <iframe width="200" height="200" src="https://www.youtube.com/embed/<%= opus.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <% else %>
-            <%= image_tag opus.image.variant(resize: '200x200') %>
-          <% end %>
-          <p><%= opus.title %></p>
-          <% end %>
-      </li>
-    <% end %>
-  </ul>
  
-
 </div>
-
-
-
-<%# <div class="user-show-opus">
-    </div>
-    <div class="user-show-opus">
-    </div> %>
-  </div>

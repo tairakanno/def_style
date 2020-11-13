@@ -72,7 +72,13 @@
 
 	  <div class='item-contents'>
 			<h2 class='title'>新着の作品をご紹介</h2>
-			<%= link_to '作品を公開し参加する', new_opus_path, class: "subtitle" %>
+			<%= link_to '作品を公開し参加する', new_opus_path, class: "btn btn-dark btn-lg" %>
+			<div class="item-contents-kensakus">
+			<%= search_form_for @p, url: search_opuses_path do |f| %>
+				<%= f.text_field :description_eq, placeholder: "価値観を検索", class: 'input'%>
+				<button class="btn btn-primary btn-lg">検索</button>
+			<% end %>
+			</div>
 			
 			<ul class='item-lists'>
 				<% @opuses.each do |opus| %>
@@ -91,7 +97,6 @@
 							<%= opus.title %>
 						</h3>
 						<div class='item-price'>
-							<span><%= opus.description %></span>
 						</div>
 						<h3 class="item-name">
 							<p>creatter：<%= opus.user.nickname %></p>

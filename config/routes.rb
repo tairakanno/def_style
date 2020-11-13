@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: "opuses#index"
   resources :opuses do
     resources :comments, only: [:create]
+    collection do
+      get 'search'
+    end
   end
   resources :items do
     resources :item_comments, only: [:create]

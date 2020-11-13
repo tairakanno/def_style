@@ -72,7 +72,7 @@
 	</div>
 	  <div class='item-contents'>
     <h2 class='title'>新着のグッズ</h2>
-    <%= link_to '作品を出品してみる', new_item_path, class: "subtitle" %>
+    <%= link_to '作品を出品してみる', new_item_path, class: "btn btn-dark btn-lg" %>
     
     <ul class='item-lists'>
       <% @items.each do |item| %>
@@ -87,7 +87,7 @@
 								<%= item.name %>
 							</h3>
 							<div class='item-price'>
-								<span><%= item.text %></span>
+								<span>¥<%= item.price %></span>
 							</div>
 						</div>
 						<% end %>

@@ -18,6 +18,15 @@
   padding: 0 8vw;
   background-color: black;
 }
+.list-boxs{
+  width: 12vw;
+  height: 10vh;
+  /* border:solid; */
+  /* border-color: white; */
+  text-align: center;
+  display: none;
+  font-family: 'PT Serif', serif;
+}
 .list-box{
   width: 12vw;
   height: 10vh;
@@ -26,4 +35,14 @@
   text-align: center;
   display: none;
   font-family: 'PT Serif', serif;
+}
+.list-boxs > .btn{
+  height: 10vh;
+  border-color: white;
+  color: white;
+  width: 12vw;
+}
+.list-boxs > .btn:hover{
+  background-color: white;
+  color: black;
 }

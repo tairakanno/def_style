@@ -1,80 +1,97 @@
 <%= render "shared/header.header" %>
-<div class="opus-show">
-  <div class="opus-show-left">
-    <div class="left">
-      <div class="left-1">
-        <div class="left-1-show">
-        <% if @opus.user.genre.name == 'Graffiti artist' %>
-          <%= image_tag @opus.image.variant(resize: '500x500') %>
-        <% else %>
-          <iframe width="400" height="300" src="https://www.youtube.com/embed/<%= @opus.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <% end %>
+<div id="opus-show">
+  <div id="opus-show-boxs">
+    <div id="opus-show-left">
+      <div id="opus-show-box1">
+       <div id="show-left1">
+        <div id="show-opus-image">
+          <% if @opus.youtube_url.present? %>
+           <iframe width="400" height="300" src="https://www.youtube.com/embed/<%= @opus.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
+          <% else %>
+           <%= image_tag @opus.image.variant(resize: '500x500') %>
+          <% end %>
         </div>
           <script>
-            $('.left-1-show').fadeIn(3000);
+            $('#show-opus-image').fadeIn(3000);
          </script>
-      </div>
-        
-      <div class="left-2">
-        <%= @opus.title %>
-      </div>
-      <div class="left-3">
-        <%= @opus.description %>
-      </div>
-      <div>
-      </div class="left-4">
+       </div>
+       <div id="show-left2">
+        <div id="left2-title">
+          <%= @opus.title %>
+        </div>
+       </div>
+       <div id="show-left3">
+        <div id="left3-description">
+          <%= @opus.description %>
+        </div>
+       </div>
+       <div id="show-left4">
+       <div id="left4-btn">
         <% if user_signed_in? && current_user.id == @opus.user.id %>
-          <div class="prototype__manage">
-          <button type="button" class="btn btn-warning"><%= link_to "編集する", edit_opus_path(@opus.id), class: :prototype_btn %></button>
-          <button type="button" class="btn btn-warning"><%= link_to "削除する", opus_path(@opus.id), method: :delete, class: :prototype__btn %></button>
-          </div>
-        <% end %>
-      </div>
-    
-  </div>
-  <div class="opus-show-comment">
-    <div class="comment">
-      <div class="comment-comment">
-         <div id="comment-message">
-          <% @comments.reverse_each do |message| %>
-              <p><%= message.text %>:by<%= message.user.nickname %> 投稿日時:<%= message.created_at %></p>
-              
-            <% end %>
-         </div> 
-          
-      </div>   
-      <div class="comment-send">
-        <%= bootstrap_form_with model: [@opus,@comment] do |form| %>
-          <%= form.text_field :text %>
-          <button class="btn btn-primary btn-lg">コメント</button>
+            <div id="left4-judge">
+            <%= link_to "編集する", edit_opus_path(@opus.id), class: "btn btn-primary btn-lg" %>
+            <%= link_to "削除する", opus_path(@opus.id), method: :delete, class: "btn btn-warning btn-lg" %></button>
+            </div>
           <% end %>
+       </div>
+       </div>
       </div>
     </div>
+      <div id="opus-show-middle">
+        <div id="opus-show-box2">
+          <div id="show-middle1">
+            <div id="comment-message">
+            <% @comments.reverse_each do |message| %>
+                <p><%= message.text %>:by<%= message.user.nickname %> 投稿日時:<%= message.created_at %></p>
+                
+              <% end %>
+          </div> 
+          </div>
+          <div id="show-middle2">
+            <%= bootstrap_form_with model: [@opus,@comment] do |form| %>
+            <%= form.text_field :text %>
+            <button class="btn btn-primary btn-lg">コメント</button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div id="opus-show-right">
+        <div id="opus-show-box3">
+         <div id="right1">
+          <%= image_tag @opus.user.image.variant(resize: '300x400') %>
+         </div>
+         <div id="right2">
+           <div id="right2-nickname">
+            <p>Artist-Name : <%= link_to @opus.user.nickname, user_path(@opus.user.id), :style=>"color:black;"%></p>
+           </div>
+         </div>
+         <div id="right3">
+            <div id="right3-genre">
+                   <p>Genre : <%= @opus.user.genre.name %></p> 
+            </div>
+         </div>
+         <div id="right4">
+            <div id="right4-area">
+                   <p>Area of ​​activity : <%= @opus.user.prefecture.name %></p>
+            </div>
+         </div>
+         <div id="right5">
+            <div id="right5-profile">
+              <p><%= @opus.user.profile %></p>
+            </div>
+         </div>
+         <div id="right6">
+          <div id="right6-btn">
+          
+            <% if user_signed_in? && current_user.id == @opus.user.id %>
+              <%= link_to "プロフィール編集", edit_user_path(@opus.user.id), class: "btn btn-primary btn-lg" %>
+            <% else %>
+              <%= link_to "マイページをみにいく", user_path(@opus.user.id), class: "btn btn-warning btn-lg" %>
+            <% end %>
+          </div>
+         </div>
+        </div>
+      </div>
   </div>
-  <div class="opus-show-user">
-   <div class="show-user">
-   <%= link_to user_path(@opus.user.id) do %>
-    <div class="opus-user-image">
-      <%# <%= image_tag @opus.user.image.variant(resize: '500x500') %> %>
-    </div>
-    <div class="opus-user-nickname">
-      <%# <%= link_to @opus.user.nickname, user_path(@opus.user.id), :style=>"color:white;"  %> %>
-    </div>
-    <div class="opus-user-genre">
-      <%# <p>Genre : <%= @opus.user.genre.name %></p> %>
-    </div>
-    <div class="opus-user-area">
-      <%# <p>Area of ​​activity : <%= @opus.user.prefecture.name %></p> %>
-    </div>
-    <div class="opus-user-profile">
-      <p><%= @opus.user.profile %></p>
-      <button type="button" class="btn btn-warning">Warning</button>
-    </div>
-    <% end %>
-  </div>
-  <script>
-    // $('.opus-show-user').show('slow');
-  </script>
-   </div>
-    
+  
 </div>

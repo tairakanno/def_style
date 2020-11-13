@@ -1,0 +1,44 @@
+.search{
+  width: 100vw;
+  height: 150vh;
+  padding: 40px;
+  background-color: teal;
+}
+.search-menu{
+  width: 100%;
+  height: 10vh;
+  text-align: center;
+}
+.search-menu > .opus_search > input[type="text"]{
+  width: 30vw;
+}
+.search-index{
+  width: 95vw;
+  height: 120vh;
+  /* background-color: tomato; */
+  overflow: scroll;
+  flex-wrap: wrap;
+}
+.resurt-lists{
+  width: 400px;
+  height: 400px;
+  background-color: lightgrey;
+  margin: 30px;
+  padding: 20px;
+}
+.resurt-list{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 3fr 1fr 1fr;
+}
+.resurt-img-content{
+  width: 100%;
+  height: 300px;
+  text-align: center;
+}
+.resurt-name{
+  text-align: center;  
+}
+
+
