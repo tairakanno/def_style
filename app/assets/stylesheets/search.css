@@ -3,6 +3,8 @@
   height: 150vh;
   padding: 40px;
   background-color: teal;
+  font-family: 'PT Serif', serif;
+
 }
 .search-menu{
   width: 100%;
@@ -15,14 +17,17 @@
 .search-index{
   width: 95vw;
   height: 120vh;
-  /* background-color: tomato; */
   overflow: scroll;
   flex-wrap: wrap;
+  display: flex;
+  justify-content: space-around;
+  border: solid;
+  border-color: lightgray;
 }
 .resurt-lists{
-  width: 400px;
-  height: 400px;
-  background-color: lightgrey;
+  width: 380px;
+  height: 440px;
+  background-color: lightgray;
   margin: 30px;
   padding: 20px;
 }
@@ -37,8 +42,16 @@
   height: 300px;
   text-align: center;
 }
-.resurt-name{
-  text-align: center;  
+.resurt-title{
+  text-align: center;
+  font-size: 20px;
 }
-
-
+.resurt-btn{
+  text-align: center;
+}
+.resurt-btn > .btn:hover{
+  color: white;
+  background-color: blue;
+  border: solid;
+  border-color: blue;
+}

@@ -3,16 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .order-index{
   width: 100vw;
-  height: 250vh;
+  // height: 250vh;
   background-color: brown;
   display: flex;
   padding-top: 50px;
   justify-content: center;
   font-family: 'PT Serif', serif;
+  padding-bottom: 50px;
 }
 .order-boxs{
   width: 60%;
-  height: 95%;
+  // height: 95%;
   background-color: white;
   display: grid;
   grid-template-rows: 3.5fr 5.5fr 1fr;

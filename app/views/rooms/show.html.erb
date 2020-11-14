@@ -26,13 +26,13 @@
  <% end %>
   </div>
     <div class="main-footer">
-      <%= form_for @message do |f| %>
+      <%= bootstrap_form_for @message do |f| %>
         <div class="main-footer-left">
           <%= f.text_field :content, :placeholder => "メッセージを入力して下さい" , :size => 70 %>
           <%= f.hidden_field :room_id, :value => @room.id %>
         </div>
       <div class="main-footer-right">
-        <%= f.submit "送信" %>
+        <%= f.submit "送信" ,class:"btn btn-primary btn-lg"%>
       </div>
       <% end %>
     </div>

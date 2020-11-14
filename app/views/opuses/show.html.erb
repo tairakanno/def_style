@@ -42,7 +42,7 @@
           <div id="show-middle1">
             <div id="comment-message">
             <% @comments.reverse_each do |message| %>
-                <p><%= message.text %>:by<%= message.user.nickname %> 投稿日時:<%= message.created_at %></p>
+                <p><%= message.text %>:by<%= message.user.nickname %> 投稿日時:<%= l message.created_at %></p>
                 
               <% end %>
           </div> 

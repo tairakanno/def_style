@@ -4,8 +4,8 @@ class OrdersController < ApplicationController
     @order = Order.new
   end
   def create
+    @item = Item.find(params[:item_id])
     @order = Order.new(order_params)
-    binding.pry
     if @order.valid?
       pay_item
       @order.save

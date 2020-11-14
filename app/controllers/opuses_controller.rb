@@ -14,7 +14,6 @@ class OpusesController < ApplicationController
       url = params[:opus][:youtube_url]
       url = url.last(11)
       @opus.youtube_url = url
-      # redirect_to root_path
     end
     if @opus.valid?
       @opus.save
@@ -43,7 +42,16 @@ class OpusesController < ApplicationController
     @comments = @opus.comments.includes(:user)
   end
   def search
-    @results = @p.result.includes(:user)
+    @results = @p.result.includes(:user).order("created_at DESC")
+  end
+  def destroy
+    @opus = Opus.find(params[:id])
+    if @opus.user.id == current_user.id
+      @opus.destroy
+      redirect_to root_path
+    else
+      render action: :show
+    end
   end
 
   private
@@ -53,4 +61,5 @@ class OpusesController < ApplicationController
   def search_product
     @p = Opus.ransack(params[:q])  # 検索オブジェクトを生成
   end
+  
 end
