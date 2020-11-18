@@ -154,8 +154,8 @@ a{
 }
 
 .item-lists>.list {
-  width: 37vh;
-  padding: 1vw;
+  width: 300px;
+  padding: 10px;
   background-color: #FFF;
 }
 
@@ -168,20 +168,6 @@ a{
   height: 33vh;
 }
 
-.sold-out {
-  position: absolute;
-  top: 40%;
-  width: 100%;
-  text-align: center;
-  background-color: crimson;
-  transform: skewY(-10deg);
-}
-
-.sold-out>span {
-  color: #FFF;
-  font-size: 45px;
-  font: bold;
-}
 
 
 .item-info {
@@ -202,17 +188,23 @@ a{
 }
 
 
-.star-btn {
-  display: flex;
-  align-items: center;
-}
+/* タブレット表示時 */
+@media (max-width: 1024px) {
 
-.star-icon {
-  height: 2vh;
-  width: 2vh;
-  margin-right: 0.5vw;
 }
+ /* スマホ横表示時 */
+@media (max-width: 667px) {
+  // .item-lists > .list{
+  //   padding: 1vw;
+  //   background-color: #FFF;
+  // }
+ }
 
-.star-count {
-  font-size: 2vh;
+  /* タブレット縦表示時 */
+@media (max-width: 768px) {
+  .item-img {
+    width: 276px;
+    height: 276px;
+  }
+
 }

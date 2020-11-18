@@ -1,7 +1,7 @@
 <%= render "shared/header.header" %>
 <div class="item-show">
   <div class="item-show-image">
-    <%= image_tag @item.image, size: "540x280" if @item.image.attached? %>
+    <%= image_tag @item.image if @item.image.attached? %>
   </div>
   <script>
    $('.item-show-image').fadeIn(3000);

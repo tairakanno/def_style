@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_09_040930) do
+ActiveRecord::Schema.define(version: 2020_11_16_050510) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -86,6 +86,16 @@ ActiveRecord::Schema.define(version: 2020_11_09_040930) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "opus_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["opus_id"], name: "index_likes_on_opus_id"
+    t.index ["user_id", "opus_id"], name: "index_likes_on_user_id_and_opus_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "room_id", null: false
@@ -145,6 +155,8 @@ ActiveRecord::Schema.define(version: 2020_11_09_040930) do
   add_foreign_key "entries", "users"
   add_foreign_key "item_comments", "items"
   add_foreign_key "item_comments", "users"
+  add_foreign_key "likes", "opuses"
+  add_foreign_key "likes", "users"
   add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
   add_foreign_key "opuses", "users"

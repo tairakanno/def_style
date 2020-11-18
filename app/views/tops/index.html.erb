@@ -1,0 +1,159 @@
+<body>
+
+<nav id="mainnav">
+	<p id="menuWrap"><a id="menu"><span id="menuBtn"></span></a></p>
+	<div class="panel">
+		<ul>
+			<%# <li><a href="#header">TOP</a></li> %>
+			<li><a href="/opuses">作品を見る</a></li>
+			<li><a href="/items">商品を買う</a></li>
+			
+			<% if user_signed_in? %>
+				<li><a href="#sec03">お気に入り</a></li>
+				<li><%= link_to "マイページ", user_path(current_user.id) %></li>
+				<li><%= link_to "ログアウト",destroy_user_session_path, method: :delete %></li>
+			<% else %>
+				<li><a href="/users/sign_up">新規登録</a></li>
+				<li><a href="/users/sign_in">ログイン</a></li>
+			<% end %>
+		</ul>
+	</div>
+</nav>
+
+<header id="header">
+		<img src="/assets/main.jpg",alt="">
+	<div id="slogan">
+		<h1>Def Style</h1>
+		<h2>一つの音楽を作り上げよう</h2>
+	</div>
+</header>
+<script>
+$('#header').fadeIn(2000);
+</script>
+
+<!-- VISION -->
+<section id="sec01">
+	<header>
+		<h2>VISION</h2>
+	</header>
+	<div class="vision">
+		自分の作り出した音楽を誰かに聴いてもらいたい。他の人が生み出す音と組み合わせたい。Def Styleはそのような気持ちから
+		誕生した音楽コミュニティサイトです。よりアーティスト同士がつながりやすくするためのサービスです。
+	</div>
+	<script>
+	// $('.vision').fadeIn(3000);
+	</script>
+</section>
+<!-- // VISION -->
+
+<!-- MESSAGE -->
+<section id="sec02">
+	<div class="wrap">
+	
+		<p class="bg"><a href="/opuses"><img src="assets/mainimage2.jpg" alt=""></a></p>
+		<div class="txt">
+			<div class="vMid">
+				<h2>作品をチェック</h2>
+				<p>まだ名の知れ渡っていないアーティストたちの可能性がつまっています。実際に気になったアーティストがいたらlikeボタンを押してみてください。
+				気になるアーティストと実際にコミュニケーションをとることも可能です。</p>
+			</div>
+		</div>
+	</div>
+	<div id="sec02_02" class="wrap">
+		<p class="bg"><a href="/items"><img src="assets/item-main.jpg" alt=""></a></p>
+		<div class="txt">
+			<div class="vMid">
+				<h2>購入もできる</h2>
+				<p>インディーズ、アンダーグラウンドの好きなアーティスト、気になっているアーティストの作品を実際に購入できます。</p>
+			</div>
+		</div>
+	</div>
+</section>
+<script>
+$('.wrap').fadeIn(3000);
+</script>
+<!-- // MESSAGE -->
+
+<!-- SERVICE -->
+<section id="sec03">
+	<div class="inner">
+		<ul class="col3">
+			<li>
+				<h2>検索機能</h2>
+				<img src="assets/opus.jpg" width="288" height="288" alt="">
+				<p>検索したいキーワードを入力しましょう。最高の出会いが待っています。</p>
+			</li>
+			<li>
+				<h2>DM機能</h2>
+				<img src="assets/dm.jpg" width="288" height="288" alt="">
+				<p>気になるアーティストとコンタクトをとるための機能です。</p>
+			</li>
+			<li>
+				<h2>いいね機能</h2>
+				<img src="assets/iine.jpg" width="288" height="288" alt="">
+				<p>いい作品には応援の意味を込めてlikeボタンを押しましょう。作品はお気に入り一覧からいつでも閲覧可能です。</p>
+			</li>
+		</ul>
+	</div>
+</section>
+<!-- // SERVICE -->
+
+<!-- STORY --> 
+<section id="sec04">
+	<div class="inner">
+		<ul class="col2">
+			<li>
+				<h2>STORY</h2>
+				<p>コロナ化で人との接触が避けられ楽曲制作</p>
+			</li>
+			<li>
+				<h2>SUCCESS</h2>
+				<p>ちかごろ世間で日本歴史の科学的研究ということがしきりに叫ばれているということがしきりに叫ばれている。科学的研究というのが近代史学の学問的方法による研究という意義であるならば、これは史学の学徒の間においては一般に行われていることであるから、今さらこと新しくいうには及ばないはずである。</p>
+			</li>
+		</ul>
+	</div>
+</section>
+<!-- // STORY -->
+
+<!-- PROFILE -->
+<section id="sec05">
+	<header>
+		<h2>PROFILE</h2>
+	</header>
+	<div class="inner">
+		<ul class="col2">
+			<li>
+				<dl>
+					<dt>社名</dt>
+					<dd>Def Dtyle Company</dd>
+					<dt>代表取締役</dt>
+					<dd>菅野 平</dd>
+					<dt>住所</dt>
+					<dd>東京都品川区大崎xxx-xxx-xxx</dd>
+					<dt>電話番号</dt>
+					<dd>01234-567-8901</dd>
+					<dt>設立</dt>
+					<dd>20XX年5月5日</dd>
+					<dt>資本金</dt>
+					<dd>1,000,000円</dd>
+					<dt>主な取引先</dt>
+					<dd><p><a href="#" target="_blank">Jam商事株式会社</a></p><p><a href="#" target="_blank">株式会社BUDDHA商事</a></p><p><a href="#" target="_blank">株式会社OZRO</a></p></dd>
+				</dl>
+			</li>
+			<li>
+				<div id="map">
+					<!-- GOOGLE MAP -->
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.5937927089367!2d136.92980931491988!3d36.70829797996758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff781ec5af4ca3f%3A0x2ade3e8e4c2801b8!2z56aP5bKh6aeF!5e0!3m2!1sja!2sus!4v1478313402186" allowfullscreen></iframe>
+					<!-- // GOOGLE MAP -->
+				</div>
+			</li>
+		</ul>
+	</div>
+</section>
+<!-- // PROFILE -->
+
+<footer id="footer">
+	Copyright(c) 20XX Sample Inc. All Rights Reserved. Design by <a href="http://f-tpl.com" target="_blank">http://f-tpl.com</a><!-- ←クレジット表記を外す場合はシリアルキーが必要です http://f-tpl.com/credit/ -->
+</footer>
+
+</body>

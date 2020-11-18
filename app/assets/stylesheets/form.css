@@ -40,3 +40,33 @@
   color: white;
 }
 
+@media (max-width: 1024px) {
+  .opus-form-box{
+    /* height: 75vh; */
+    width: 80vw;
+  }
+  
+}
+ /* スマホ表示時 */
+ @media (max-width: 599px) {
+  .opus-form{
+    width: 100vw;
+    /* min-height: 200vh; */
+    background-color: brown;
+    font-family: 'PT Serif', serif;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* padding-top: 40px; */
+    /* padding-bottom: 50px; */
+  }
+  .opus-form-box{
+    /* height: 75vh; */
+    width: 80vw;
+  }
+  .item-form-box{
+    width: 80%;
+    background-color: cornsilk;
+    padding: 20px;
+  }
+}

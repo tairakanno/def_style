@@ -1,48 +1,72 @@
 // Place all the styles related to the rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.room{
+#room{
   width: 100vw;
   height: 100vh;
-  background-color: lightgrey;
-  display: flex;
-  padding-bottom: 5vh;
+  padding: 30px;
+  background-color: black;
 }
-.side{
-  width: 20vw;
-  background-color:gainsboro;
-}
-.side-header{
-  height: 15vh;
-  background-color:gray;
-}
-.side-header-info{
-  padding-top: 15px;
-  padding-left: 15px;
-  font-family: 'PT Serif', serif;
-}
-
-.main{
-  width: calc(100% - 20vw);
+#room-boxs{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
   background-color: white;
 }
-.main-header{
-  height: 15vh;
-  background-color: gainsboro;
+#room-left{
+  
 }
-.main-main{
-  height: 75vh;
+#room-left > #left-boxs{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 4fr;
 }
-.main-footer{
-  height: 10vh;
+#left-boxs > #left-top{
+  grid-row: 1/2;
   background-color: gray;
+}
+#room-right > #right-boxs{
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-rows: 4fr 1fr;
+}
+#right-messages{
+  border: solid;
+  grid-row: 1/2;
+}
+
+#right-boxs > #right-send{
+  grid-row: 2/3;
+  background-color: gray;
+}
+#room-right-bottom {
+  width: 100%;
+  height: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.main-footer-left{
-  width: 85%;
-  height: 10vh;
+#message-send{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.main-footer-right{
-  width: 15%;
-  height: 10vh;
+#message-send > .btn{
+  text-align: center;
+  height: 70px;
+  margin-top: 18px;
+}
+#return-btn{
+  padding-top: 22px;
+}
+#main-main{
+  height: 70vh;
+  word-wrap: break-word;
+  overflow: scroll;
+  flex-wrap: wrap;
+  width: 75vw;
+  padding: 20px;
 }

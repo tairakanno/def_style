@@ -1,79 +1,15 @@
-<%= render "shared/header2" %>
+<%= render "shared/header.header" %>
 <div class="opus-index">
-	<div class="mainimg">
-	<div class="mainimg-header">
-			<h2 class="tokutyou">Def-Styleの特徴</h2>
-			<script>
-				$('.tokutyou').fadeIn(5000);
-			</script>
-		</div>
-		<div class="mainimg-footer">
-				<div class="index-box">
-					<div class="index-box-image">
-						<%= link_to root_path do %>
-							<img src="/assets/opus.jpg", alt="", class="index-box-image-box">
-						<% end %>	
-					</div>
-					<div class="index-box-text">
-						<%= link_to root_path do %>
-							<h2 class=link-p>作品紹介</h2><br>
-							<p class=link-p>まだ無名のアーティストにより<br>作られた作品が集まる</p>
-						<% end %>
-					</div>
-				</div>
-				<div class="index-box">
-					<div class="index-box-image">
-						<%= link_to items_path do %>
-							<img src="/assets/item-main.jpg", alt="", class="index-box-image-box">
-						<% end %>
-					</div>
-					<div class="index-box-text">
-						<%= link_to items_path do %>
-							<h2 class=link-p>作品を買う</h2><br>
-							<p class=link-p>創られた作品を購入できる</p>
-						<% end %>
-					</div>
-				</div>
-				<div class="index-box">
-					<div class="index-box-image">
-						<%= link_to "#" do %>
-							<img src="/assets/dm.jpg", alt="", class="index-box-image-box">
-						<% end %>
-					</div>
-					<div class="index-box-text">
-						<%= link_to "#" do %>
-							<h2 class=link-p>DM機能</h2><br>
-							<p class=link-p>Comming Soon</p>
-						<% end %>
-					</div>
-				</div>
-				<script>
-					$('.index-box').show('slow')
-				</script>
-		</div>
-
-	</div>
-	<div class="concept">
-		<div class="concept-concept">
-			<p>コンセプト</p>
-		</div>
-		<div class="concept-message">
-			<p class="message-out1">つくった作品を全世界に届ける</p><br>
-			<p class="message-out2">好きなアーティストの作品を</p><br>
-			<p class="message-out3">常に見逃さない</p>
-		</div>
-		<script>
-		$('.concept-message').fadeIn(3000);
-		$('.message-out1').fadeIn(5000);
-		$('.message-out2').fadeIn(9000);
-		$('.message-out3').fadeIn(12000);
-		</script>
-
-	</div>
+	
 	  <div class='item-contents'>
     <h2 class='title'>新着のグッズ</h2>
     <%= link_to '作品を出品してみる', new_item_path, class: "btn btn-dark btn-lg" %>
-    
+    <div>
+		<%= search_form_for @p, url: search_items_path do |f| %>
+				<%= f.text_field :name_eq, placeholder: "商品名を検索", class: 'input'%>
+				<button class="btn btn-primary btn-lg">検索</button>
+			<% end %>
+		</div>
     <ul class='item-lists'>
       <% @items.each do |item| %>
       <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>

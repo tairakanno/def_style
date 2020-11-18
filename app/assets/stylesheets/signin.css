@@ -2,65 +2,68 @@
   margin: 0px;
   padding: 0px;
   text-decoration: none;
+  font-family: 'PT Serif', serif;
 }
-.sign-in-filde{
+.user-sign-in{
+  background-color: black;
   width: 100vw;
-  height: 100vh;
+  min-height: 110vh;
+  position: relative;
 }
-.signimage{
-  background-image: url("sign-in.jpg");
-  width: 100vw;
-  height: 100vh;
+
+.user-sign-in > video{
+  min-width: 100%;
+  min-height: 110vh;
+}
+.sign-in-box1{
   display: none;
-}
-.signimage-header{
-  text-align: center;
-  /* height: 15vh; */
-  /* width: 100vw; */
-  padding-top: 8vh;
-}
-.signimage-p{
-  font-size: 35px;
-  color: white;
-  font-family: 'PT Serif', serif;
-  display: none;
-}
-.sign-in-box{
-  font-family: 'PT Serif', serif;
-  width: 300px;
-  height: 50%;
-  background-color: white;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  opacity: 0.7;
+  width: 100%;
+  height: auto;
   position: absolute;
-  display: none;
-  padding: 10px;
-  background-color: darkgray;
 }
-.sign-up-box{
-  font-family: 'PT Serif', serif;
-  width: 300px;
-  height: 90%;
-  background-color: white;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  position: absolute;
-  display: none;
+
+video{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background: url(movie.jpg) no-repeat;
+  background-size: cover;
+ }
+ .cont{
+  display:flex;
+  justify-content:center;
+  margin: 20% 0 0;
+ }
+ .cont-inner-up{
+  width: 50%;
   padding: 20px;
-  background-color: darkgray;
+  border: solid 1px #fff;
+  color: #fff;
+ }
+ .cont-inner-in{
+  width: 35%;
+  padding: 20px;
+  border: solid 1px #fff;
+  color: #fff;
+ }
+ /* スマホ表示時 */
+ @media (max-width: 599px) {
+  .cont-inner-in{
+    width: 300px;
+   }
+   .cont-inner-up{
+    width: 300px;
+   }
 }
-.actions{
-  margin-top: 2vh;
-}
-
-
-.sign-in-boxs{
-  padding-top: 5vh;
-  display: flex;
-  justify-content: center;
-}
-.field-profile{
-  height: 5vh;
+/* タブレット表示時 */
+@media (max-width: 1024px) {
+  .cont-inner-in{
+    width: 450px;
+   }
 }

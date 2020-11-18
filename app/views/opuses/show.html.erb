@@ -1,9 +1,9 @@
 <%= render "shared/header.header" %>
-<div id="opus-show">
-  <div id="opus-show-boxs">
-    <div id="opus-show-left">
-      <div id="opus-show-box1">
-       <div id="show-left1">
+<div class="contents">
+     <div class="flexbox">
+       <div class="box1">
+          <div id="opus-show-box1">
+       <%# <div id="show-left1"> %>
         <div id="show-opus-image">
           <% if @opus.youtube_url.present? %>
            <iframe width="400" height="300" src="https://www.youtube.com/embed/<%= @opus.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen ></iframe>
@@ -14,7 +14,7 @@
           <script>
             $('#show-opus-image').fadeIn(3000);
          </script>
-       </div>
+       <%# </div> %>
        <div id="show-left2">
         <div id="left2-title">
           <%= @opus.title %>
@@ -28,70 +28,41 @@
        <div id="show-left4">
        <div id="left4-btn">
         <% if user_signed_in? && current_user.id == @opus.user.id %>
-            <div id="left4-judge">
             <%= link_to "編集する", edit_opus_path(@opus.id), class: "btn btn-primary btn-lg" %>
-            <%= link_to "削除する", opus_path(@opus.id), method: :delete, class: "btn btn-warning btn-lg" %></button>
-            </div>
-          <% end %>
-       </div>
-       </div>
-      </div>
-    </div>
-      <div id="opus-show-middle">
-        <div id="opus-show-box2">
-          <div id="show-middle1">
-            <div id="comment-message">
-            <% @comments.reverse_each do |message| %>
-                <p><%= message.text %>:by<%= message.user.nickname %> 投稿日時:<%= l message.created_at %></p>
-                
-              <% end %>
-          </div> 
-          </div>
-          <div id="show-middle2">
-            <%= bootstrap_form_with model: [@opus,@comment] do |form| %>
-            <%= form.text_field :text %>
-            <button class="btn btn-primary btn-lg">コメント</button>
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <div id="opus-show-right">
-        <div id="opus-show-box3">
-         <div id="right1">
-          <%= image_tag @opus.user.image.variant(resize: '300x400') %>
-         </div>
-         <div id="right2">
-           <div id="right2-nickname">
-            <p>Artist-Name : <%= link_to @opus.user.nickname, user_path(@opus.user.id), :style=>"color:black;"%></p>
-           </div>
-         </div>
-         <div id="right3">
-            <div id="right3-genre">
-                   <p>Genre : <%= @opus.user.genre.name %></p> 
-            </div>
-         </div>
-         <div id="right4">
-            <div id="right4-area">
-                   <p>Area of ​​activity : <%= @opus.user.prefecture.name %></p>
-            </div>
-         </div>
-         <div id="right5">
-            <div id="right5-profile">
-              <p><%= @opus.user.profile %></p>
-            </div>
-         </div>
-         <div id="right6">
-          <div id="right6-btn">
-          
-            <% if user_signed_in? && current_user.id == @opus.user.id %>
-              <%= link_to "プロフィール編集", edit_user_path(@opus.user.id), class: "btn btn-primary btn-lg" %>
+            <%= link_to "削除する", opus_path(@opus.id), method: :delete, class: "btn btn-danger btn-lg" %>
             <% else %>
-              <%= link_to "マイページをみにいく", user_path(@opus.user.id), class: "btn btn-warning btn-lg" %>
-            <% end %>
-          </div>
-         </div>
-        </div>
+            <%= link_to "作者", user_path(@opus.user.id), class: "btn btn-warning btn-lg" %>
+          <% end %>
+          <th id="show-like">
+          <% if current_user.liked_by?(@opus.id) %>
+							<td><%= link_to "not like", destroy_like_path(@opus), method: :delete, remote: true, class:"btn btn-primary btn-sm" %><%= @opus.likes.count %></td>
+					<% else %>
+							<td><%= link_to "like", create_like_path(@opus), method: :POST, remote: true, class:"btn btn-danger btn-sm" %><%= @opus.likes.count %></td>
+					<% end %>
+          </th>
+          
+       </div>
+       </div>
       </div>
-  </div>
-  
-</div>
+         </div>
+         <div class="box2">
+             <div id="opus-show-middle">
+                <div id="opus-show-box2">
+                  <div id="show-middle1">
+                    <div id="comment-message">
+                    <% @comments.reverse_each do |message| %>
+                        <p><%= message.text %>:by<%= message.user.nickname %> 投稿日時:<%= l message.created_at %></p>
+                      <% end %>
+                  </div> 
+                  </div>
+                  <div id="show-middle2">
+                    <%= bootstrap_form_with model: [@opus,@comment] do |form| %>
+                    <%= form.text_field :text %>
+                    <button class="btn btn-primary btn-lg">コメント</button>
+                    <% end %>
+                  </div>
+                </div>
+             </div>
+         </div>
+     </div>
+ </div>

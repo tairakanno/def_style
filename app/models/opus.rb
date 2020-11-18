@@ -2,6 +2,8 @@ class Opus < ApplicationRecord
   belongs_to :user
   has_many :comments
   has_one_attached :image
+  has_many :likes
+  has_many :users, through: :likes
   with_options presence: true do
     validates :title, length: { in: 1..50 }
     validates :description, length: { in: 1..500 }

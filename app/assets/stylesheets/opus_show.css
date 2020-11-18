@@ -1,172 +1,135 @@
-#opus-show{
-  width: 100vw;
-  height: 120vh;
-  background-color: teal;
-  padding: 20px;
+.contents {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  height: 100vh;
   font-family: 'PT Serif', serif;
 }
-#opus-show-boxs{
+.contents img {
   width: 100%;
-  height: 100%;
-  /* background-color: white; */
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
 }
-#opus-show-left{
-  grid-row: 1/2;
-  /* background-color: tomato; */
+.text-center {
+  text-align: center;
+}
+.flexbox {
+  display: flex;
+  height: 100vh;
+}
+.box1 {
+  width: 55%;
+  /* margin: auto; */
   padding: 20px;
 }
+.box2 {
+  width: 45%;
+  /* margin: auto .5rem; */
+  padding: 20px;
+}
+@media screen and (max-width: 767px) {
+  .flexbox {
+      display: block;
+  }
+  .flexbox .box1 {
+      width: 100%;
+      margin: 0 auto;
+  }
+  .flexbox .box2 {
+      width: 100%;
+      margin: 0 auto;
+  }
+}
+
+
 #opus-show-box1{
   width: 100%;
-  height: 100%;
-  background-color: gainsboro;
+  height: 100vh;
   display: grid;
   grid-template-rows: 3fr 1fr 2fr 1fr;
-}
-#show-left1{
-  padding: 15px;
+  background-color: lightgrey;
 }
 #show-opus-image{
-  display: none;
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+#show-opus-image > iframe{
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 100%;
   height: 100%;
-  text-align: center;
 }
 #show-left2{
-  padding: 25px;
+  padding: 15px;
 }
 #left2-title{
-  width: 100%;
   height: 100%;
+  font-size: 30px;
+  text-align: center;
   border-bottom: solid;
   border-color: black;
-  text-align: center;
-  font-size: 35px;
 }
 #show-left3{
-  padding: 25px;
+  padding: 15px;
 }
 #left3-description{
-  width: 100%;
   height: 100%;
+  font-size: 14px;
   border-bottom: solid;
   border-color: black;
-  font-size: 18px;
 }
 #show-left4{
-  padding: 25px;
+  padding: 15px;
 }
-#left4-judge{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+#left4-description{
+  height: 100%;
+  text-align: center;
+}
+#left4-description > .btn{
+  margin: 10px 40px;
 }
 #opus-show-middle{
-  grid-column: 2/3;
-  padding: 20px;
-  /* background-color: black; */
+  padding: 15px;
+  background-color: lightgrey;
 }
 #opus-show-box2{
   width: 100%;
   height: 100%;
-  background-color: gainsboro;
   display: grid;
   grid-template-rows: 4fr 1fr;
 }
 #show-middle1{
-  grid-row: 1/2;
-  padding: 20px;
-  width: 100%;
-  height: 100%;
-  background-color: gainsboro;
   border-bottom: solid;
   border-color: black;
-  /* overflow: scroll; */
 }
-#comment-message{
-  height: 700px;
+#show-middle1 > #comment-message{
+  height: 550px;
+  width: 460px;
   overflow: scroll;
-  transform: translateZ(0);
-}
-#show-middle2{
-  grid-row: 2/3;
-  padding: 20px;
-}
-#opus-show-right{
-  grid-column: 3/4;
-  /* background-color: goldenrod; */
-  padding: 20px;
-}
-#opus-show-box3{
-  background-color: gainsboro;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-rows: 2fr 1fr 1fr 1fr 3fr 1fr;
-}
-#right1{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-}
-#right2{
-  padding: 15px;
-  display: flex;
-  align-items: center;
-}
-#right2-nickname{
-  width: 100%;
-  font-size: 20px;
-  border-bottom: solid;
-  border-color: black;
-}
-#right3{
-  padding: 15px;
-  display: flex;
-  align-items: center;
-}
-#right3-genre{
-  width: 100%;
-  font-size: 20px;
-  border-bottom: solid;
-  border-color: black;
-}
-#right4{
-  padding: 15px;
-  display: flex;
-  align-items: center;
-}
-#right4-area{
-  width: 100%;
-  font-size: 20px;
-  border-bottom: solid;
-  border-color: black;
-}
-#right5{
-  padding: 15px;
-  display: flex;
-  align-items: center;
-}
-#right5-profile{
-  width: 300px;
-  height: 250px;
-  font-size: 20px;
-  border-bottom: solid;
-  border-color: black;
   word-wrap: break-word;
-  overflow: scroll;
 }
-/* #right5-profile > p.break{
-  
-} */
-#right6{
-  padding: 15px;
-  display: flex;
-  align-items: center;
+/* タブレット表示時 */
+@media (max-width: 1024px) {
+  #show-middle1{
+    border-bottom: solid;
+    border-color: black;
+    height: 600px;
+    width: 300px;
+    overflow: scroll;
+    word-wrap: break-word;
+  }
 }
-#right6-btn{
-  width: 100%;
-  text-align: center;
+ /* スマホ表示時 */
+ @media (max-width: 599px) {
+  #show-middle1 > #comment-message{
+    height: 450px;
+    width: 460px;
+    overflow: scroll;
+    word-wrap: break-word;
+  }
+  #opus-show-middle{
+    margin-top: 200px;
+  }
 }
+

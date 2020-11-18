@@ -1,0 +1,31 @@
+<%= render "shared/header.header" %>
+<div class="search">
+  <h1>My Favalite Colection</h1>
+    <div class="search-index">
+      <% if @likes.length !=0 %>
+        <% @likes.each do |opus| %>
+          <div class='resurt-lists'>
+           <div class="resurt-list">
+            
+                  <div class='resurt-img-content'>
+                    <% if opus.youtube_url.present? %>
+                      <iframe width="300" height="270" src="https://www.youtube.com/embed/<%= opus.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <% else %>
+                      <%= image_tag opus.image.variant(resize: '500x500'), class: 'item-img' if opus.image.attached? %>
+                    <% end %>
+                  </div>
+                    <div class='resurt-title'>
+                      <%= opus.title %>
+                    </div>
+                    <div class="resurt-btn">
+                      <%= link_to "作品をチェック", opus_path(opus.id),class: "btn btn-danger" %>
+                    </div>
+           </div>
+          
+          </div>
+        <% end %>
+      <% else %>
+      まだお気に入りの作品はありません
+      <% end %>
+  </div>
+</div>

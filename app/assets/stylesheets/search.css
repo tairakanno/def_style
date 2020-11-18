@@ -8,14 +8,40 @@
 }
 .search-menu{
   width: 100%;
-  height: 10vh;
+  height: 15vh;
   text-align: center;
 }
 .search-menu > .opus_search > input[type="text"]{
-  width: 30vw;
+  width: 45vw;
+  height: 8vh;
+}
+.search-menu > .item_search > input[type="text"]{
+  width: 45vw;
+  height: 7vh;
+}
+ /* スマホ表示時 */
+ @media (max-width: 768px) {
+  .search-menu > .opus_search > input[type="text"]{
+    width: 45vw;
+    height: 5vh;
+  }
+
+}
+@media (max-width: 667px) {
+  .search-menu > .opus_search > input[type="text"]{
+    width: 45vw;
+    height: 11vh;
+  }
+
+}
+@media (max-width: 375px) {
+  .search-menu > .opus_search > input[type="text"]{
+    width: 45vw;
+    height: 7vh;
+  }
+
 }
 .search-index{
-  width: 95vw;
   height: 120vh;
   overflow: scroll;
   flex-wrap: wrap;

@@ -32,8 +32,19 @@ class UsersController < ApplicationController
       render "edit"
     end  
   end
+  def destroy
+    @user = User.find(params[:opus_id])
+    if @user.destroy
+      redirect_to new_user_registration_path
+    else
+      renser action: :show
+    end
+  end
+
+
   private
   def user_params
-    params.require(:user).permit(:nickname, :prefecture_id, :genre_id, :profile)
+    params.require(:user).permit(:nickname, :prefecture_id, :genre_id, :profile, :image)
   end
+  
 end

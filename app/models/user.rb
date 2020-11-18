@@ -17,4 +17,9 @@ class User < ApplicationRecord
   has_many :items, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
+  has_many :likes
+  has_many :like_opuses, through: :likes, source: :opus
+  def liked_by?(opus_id)
+    likes.where(opus_id: opus_id).exists?
+  end
 end

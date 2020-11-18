@@ -20,29 +20,54 @@
 }
 .list-boxs{
   width: 12vw;
-  height: 10vh;
+  height: 7vh;
   /* border:solid; */
   /* border-color: white; */
   text-align: center;
   display: none;
   font-family: 'PT Serif', serif;
+  margin: 0px 5px;
 }
-.list-box{
-  width: 12vw;
-  height: 10vh;
-  border:solid;
-  border-color: white;
-  text-align: center;
-  display: none;
-  font-family: 'PT Serif', serif;
-}
-.list-boxs > .btn{
+
+/* .list-boxs > .btn{
   height: 10vh;
   border-color: white;
   color: white;
   width: 12vw;
-}
+} */
 .list-boxs > .btn:hover{
   background-color: white;
   color: black;
+}
+.list-boxs > .btn {
+  white-space: normal;
+  width: 15vw;
+  height: 10vh;
+  }
+/* タブレット表示時 */
+@media (max-width: 1024px) {
+  .list-boxs > a{
+    font-size: 15px;
+  }
+  #header-footer{
+    display: flex;
+    height: 20vh;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 8vw;
+    background-color: black;
+  }
+}
+
+ /* スマホ表示時 */
+ @media (max-width: 599px) {
+  .list-boxs > a{
+    font-size: 1px;
+    display: inline-flex;
+  }
+  .list-boxs > .btn {
+    white-space: normal;
+    width: 15vw;
+    height: 10vh;
+    }
 }

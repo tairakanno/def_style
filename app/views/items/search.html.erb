@@ -1,0 +1,36 @@
+<%= render "shared/header.header" %>
+<div class="search">
+  <div class="search-menu">
+    <%= search_form_for @p, url: search_items_path do |f| %>
+          <%= f.text_field :name_eq, placeholder: "価値観を検索", class: 'input'%>
+          <button class="btn btn-primary btn-lg">検索</button>
+        <% end %>
+  </div>
+    <div class="search-index">
+      <% if @results.length !=0 %>
+        <% @results.each do |item| %>
+          <div class='resurt-lists'>
+           <div class="resurt-list">
+            
+                  <div class='resurt-img-content'>
+                    
+                      <%= image_tag item.image.variant(resize: '500x500'), class: 'item-img' if item.image.attached? %>
+                    
+                  </div>
+                    <div class='resurt-title'>
+                      <%= item.name %>
+                    </div>
+                    <div class="resurt-btn">
+                      <%= link_to "商品をチェック", item_path(item.id),class: "btn btn-danger" %>
+                    </div>
+                
+          
+           </div>
+                
+          </div>
+        <% end %>
+      <% else %>
+        該当する商品はありません
+      <% end %>
+  </div>
+</div>

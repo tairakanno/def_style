@@ -1,4 +1,5 @@
 class OpusesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :search]
   before_action :search_product, only: [:index, :search]
   def index
     @opuses = Opus.includes(:user).order("created_at DESC")
@@ -17,7 +18,7 @@ class OpusesController < ApplicationController
     end
     if @opus.valid?
       @opus.save
-      redirect_to root_path
+      redirect_to opuses_path
     else
       render "new"
     end

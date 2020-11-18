@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :search]
+  before_action :search_item, only: [:index, :search]
   def index
     @items = Item.all
   end
@@ -34,10 +36,16 @@ class ItemsController < ApplicationController
     @item.destroy
     redirect_to action: :index
   end
+  def search
+    @results = @p.result.includes(:user).order("created_at DESC")  # 検索条件にマッチした商品の情報を取得
+  end
 
   
   private
     def item_params
       params.require(:item).permit(:name, :text, :days_to_ship_id, :image, :price).merge(user_id: current_user.id)
+    end
+    def search_item
+      @p = Item.ransack(params[:q])  # 検索オブジェクトを生成
     end
 end
