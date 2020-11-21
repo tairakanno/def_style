@@ -45,12 +45,14 @@ video{
   padding: 20px;
   border: solid 1px #fff;
   color: #fff;
+  text-align: center;
  }
  .cont-inner-in{
   width: 35%;
   padding: 20px;
   border: solid 1px #fff;
   color: #fff;
+  text-align: center;
  }
  /* スマホ表示時 */
  @media (max-width: 599px) {

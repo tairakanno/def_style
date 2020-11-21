@@ -1,4 +1,5 @@
 <%= render "shared/header.header" %>
+<div class="opus-back">
 <div class="contents">
      <div class="flexbox">
        <div class="box1">
@@ -33,13 +34,9 @@
             <% else %>
             <%= link_to "作者", user_path(@opus.user.id), class: "btn btn-warning btn-lg" %>
           <% end %>
-          <th id="show-like">
-          <% if current_user.liked_by?(@opus.id) %>
-							<td><%= link_to "not like", destroy_like_path(@opus), method: :delete, remote: true, class:"btn btn-primary btn-sm" %><%= @opus.likes.count %></td>
-					<% else %>
-							<td><%= link_to "like", create_like_path(@opus), method: :POST, remote: true, class:"btn btn-danger btn-sm" %><%= @opus.likes.count %></td>
-					<% end %>
-          </th>
+          <div id="opus_show_<%= @opus.id %>">
+          <%= render partial: 'likes/like', locals: { opus: @opus} %>
+          </div>
           
        </div>
        </div>
@@ -53,7 +50,7 @@
                     <% @comments.reverse_each do |message| %>
                         <p><%= message.text %>:by<%= message.user.nickname %> 投稿日時:<%= l message.created_at %></p>
                       <% end %>
-                  </div> 
+                    </div> 
                   </div>
                   <div id="show-middle2">
                     <%= bootstrap_form_with model: [@opus,@comment] do |form| %>
@@ -66,3 +63,4 @@
          </div>
      </div>
  </div>
+</div>

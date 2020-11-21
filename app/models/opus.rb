@@ -21,5 +21,4 @@ class Opus < ApplicationRecord
   def video_or_image
     youtube_url.present? || image.present?
   end
-
 end

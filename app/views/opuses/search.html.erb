@@ -11,7 +11,6 @@
         <% @results.each do |opus| %>
           <div class='resurt-lists'>
            <div class="resurt-list">
-            
                   <div class='resurt-img-content'>
                     <% if opus.youtube_url.present? %>
                       <iframe width="300" height="270" src="https://www.youtube.com/embed/<%= opus.youtube_url%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

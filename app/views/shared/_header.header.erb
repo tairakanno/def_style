@@ -3,7 +3,7 @@
 			<%= link_to "作品", opuses_path, class: "btn btn-outline-light" %>
 		</div>
 		<div class="list-boxs">
-			<%= link_to "商品", items_path, class: "btn btn-outline-light h-10 w-10" %>
+			<%= link_to "商品", items_path, class: "btn btn-outline-light" %>
 		</div>
 
 		<% if user_signed_in? %>
@@ -14,7 +14,7 @@
 			<%= link_to "マイページ", user_path(current_user.id), class: "btn btn-outline-light" %>
 		</div>
 		<div class="list-boxs">
-			<%= link_to 'log aut', destroy_user_session_path, method: :delete, class: "btn btn-outline-light" %>
+			<%= link_to 'log out', destroy_user_session_path, method: :delete, class: "btn btn-outline-light" %>
 		</div>
 		<% else %>
 		<div class="list-boxs">
@@ -30,6 +30,6 @@
 		
 		
 			<script>
-				$('.list-boxs').show(1000)
+				$('.list-boxs').show(800);
 			</script>
 	</div>

@@ -178,6 +178,10 @@ section h2{
 	-webkit-background-size: cover;
 	color: #fff;
 }
+.inner > .col2{
+	display: flex;
+	justify-content: space-around;
+}
 
 
 /* SEC05 PROFILE

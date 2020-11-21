@@ -1,4 +1,6 @@
-
+.user-show-contents{
+  background-color: brown;
+}
 .userflexbox {
   display: flex;
   height: 150vh;
@@ -117,6 +119,12 @@
     width: calc(100% - 45%);
     background-color: brown;
   }
+}
+@media (max-width: 375px) {
+  #user-left-box1 > img{
+    width: 300px;
+  }
+  
 }
 @media (max-width: 1024px) {
   .userbox1 {

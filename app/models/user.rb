@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many  :comments
   has_many  :item_comments, dependent: :destroy
   has_one_attached :image
+  validates :image, presence: true
   validates :nickname, presence: true
   validates :prefecture, presence: true
   validates :prefecture_id, numericality: { other_than: 1 }

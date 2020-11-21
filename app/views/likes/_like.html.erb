@@ -1,0 +1,6 @@
+          
+          <% if current_user.liked_by?(opus.id) %>
+              <p><span>お気に入り解除: </span><%=link_to opus.likes.count, create_like_path(opus.id), method: :delete, remote: true %></p>
+					<% else %>
+							<p><span>お気に入り登録: </span><%=link_to opus.likes.count, destroy_like_path(opus.id), method: :post, remote: true %></p>
+					<% end %>

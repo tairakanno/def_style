@@ -1,9 +1,15 @@
+.opus-back{
+  background-color: brown;
+  width: 100%;
+  height: 120vh;
+}
 .contents {
   width: 100%;
   max-width: 1200px;
   margin: auto;
   height: 100vh;
   font-family: 'PT Serif', serif;
+  /* background-color: brown; */
 }
 .contents img {
   width: 100%;
@@ -133,3 +139,11 @@
   }
 }
 
+/* スマホ表示時 */
+@media (max-width: 375px) {
+  .opus-back{
+    background-color: brown;
+    width: 100%;
+    height: 300vh;
+  }
+}

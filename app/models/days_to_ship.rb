@@ -6,5 +6,4 @@ class DaysToShip < ActiveHash::Base
     {id: 4 , name: "5~8日" },
     {id: 5 , name: "9~20日" }
   ]
-  
 end

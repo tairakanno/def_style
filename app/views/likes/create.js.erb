@@ -1,2 +1,3 @@
 document.getElementById('opus_<%= @opus.id %>').innerHTML = '<%= j(render @opus) %>'
-document.getElementById('show-like').innerHTML = '<%= j(render @opus) %>'
+
+$('#likes_buttons_<%= @opus.id %>').html("<%= j(render partial: 'likes/like', locals: {opus: @opus}) %>");
