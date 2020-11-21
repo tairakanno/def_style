@@ -12,6 +12,7 @@ require('../item_comment')
 require('../preview')
 require("jquery")
 require("../search")
+require('../script')
 require('bootstrap/dist/js/bootstrap.min.js')
 import 'bootstrap'
 import '../stylesheets/application'
