@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
+  # before_action :move_to_root_path, only: [:show]
   def create
     @room = Room.create
     @entry1 = Entry.create(:room_id => @room.id, :user_id => current_user.id)
@@ -15,6 +16,12 @@ class RoomsController < ApplicationController
       @entries = @room.entries
     else
       redirect_back(fallback_location: root_path)
+    end
+  end
+  private
+  def move_to_root_path
+    if user_signed_in? && current_user.id == @room.entries.user_id
+      redirect_to root_path
     end
   end
 end
