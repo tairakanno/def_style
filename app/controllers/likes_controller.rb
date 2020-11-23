@@ -4,7 +4,6 @@ class LikesController < ApplicationController
 
   def create
     like = Like.create(user_id: current_user.id, opus_id: params[:id])
-
   end
   def destroy
     Like.find_by(user_id: current_user.id, opus_id: params[:id]).destroy
