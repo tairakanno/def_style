@@ -1,24 +1,161 @@
-# README
+## users テーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| Column         | Type   | Options     |
+| --------       | ------ | ----------- |
+| nickname       | string | null: false |
+| email          | string | null: false | unique: true
+| password       | string | null: false |
+| profile        | text   
+| prefecture_id  | integer   | null: false |
+| genre_id       | integer   | null: false |
+### Association
 
-Things you may want to cover:
+- has_many :opuses
+- has_many :items
+- has_many :comments
+- has_many :likes
+- has_many :messages
+- has_many :entries
+- belongs_to_active_hash :prefecture
+- belongs_to_active_hash :genre
+- has_one_attached :image
+## items テーブル
 
-* Ruby version
+| Column         | Type   | Options     |
+| ------         | ------ | ----------- |
+| name           | text   | null: false |
+| text           | text   | null: false |
+| days_to_ship_id| integer | null: false |
+| price          | integer | null: false |
+| user           | references | null: false, foreign_key: true |
 
-* System dependencies
+### Association
 
-* Configuration
+- belongs_to :user
+- has_many :records
+- has_many :item_comments
+- belongs_to_active_hash :category
+- belongs_to_active_hash :days_to_ship
+- has_one_attached :image
 
-* Database creation
+## opuses テーブル
 
-* Database initialization
+| Column         | Type   | Options     |
+| ------         | ------ | ----------- |
+| title          | text   | null: false |
+| description    | text   | null: false |
+| youtube_url    | text   |
+| price          | integer | null: false |
+| user           | references | null: false, foreign_key: true |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :user
+- has_many   :comments
+- has_many   :likes
+- has_one_attached :image
 
-* Deployment instructions
 
-* ...
+## comments テーブル
+
+| Column        | Type       | Options           |
+| ------        | ---------- | ----------------- |
+| text          | text       |  
+| user          | references | foreign_key: true |
+| opus          | references | foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :opus
+
+## item_comments テーブル
+
+| Column        | Type       | Options           |
+| ------        | ---------- | ----------------- |
+| text          | text       |  
+| user          | references | foreign_key: true |
+| item          | references | foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+
+## likes テーブル
+
+| Column        | Type       | Options           |
+| ------        | ---------- | ----------------- |
+| user          | references | foreign_key: true, null: false |
+| opus          | references | foreign_key: true, null: false |
+
+### Association
+
+- belongs_to :user
+- belongs_to :opus
+
+## records テーブル
+
+| Column        | Type       | Options                        |
+| ------        | ---------- | ------------------------------ |
+| user          | references | null: false, foreign_key: true |
+| item          | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+- has_one    :address
+
+
+## shipping_address テーブル
+
+| Column  | Type    | Options                        |
+| ------- | ------- | ------------------------------ |
+| postal_code       | string | null: false |
+| prefecture_id     | integer| null: false |
+| municipality      | string | null: false |
+| address           | string | null: false |
+| building_name     | string | 
+| phone_number      | string | null: false |
+| purchase_record   | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :record
+- belongs_to_active_hash :prefecture
+
+## rooms テーブル
+
+| Column        | Type       | Options              |
+| ------        | ---------- | -------------------- |
+| name          | string     | 
+
+### Association
+
+- has_many :messages
+- has_many :entries
+
+## entries テーブル
+
+| Column        | Type       | Options                        |
+| ------        | ---------- | ------------------------------ |
+| user          | references | null: false, foreign_key: true |
+| room          | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :room
+
+## messages テーブル
+
+| Column        | Type       | Options                        |
+| ------        | ---------- | ------------------------------ |
+| user          | references | null: false, foreign_key: true |
+| room          | references | null: false, foreign_key: true |
+| content       | text       |
+
+### Association
+
+- belongs_to :user
+- belongs_to :room
