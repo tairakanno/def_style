@@ -1,10 +1,44 @@
 # README
 
+## :scroll: Def Style
+HipHopカルチャーを舞台に、まだ無名のアーティストや、アンダーグラウンドを活動拠点としているアーティストが作品を公開し共同製作者を探すことができるアプリケーションです。
+
+## :scroll:　Story
+自分はHipHopカルチャーの中でもrap、DJに興味がありました。rapを構成するtrapを初めて作り、誰かに自分の作ったtrapの上でrapをして欲しいと思い立った時、HipHop専門の共同催作者を募るプラットフォームやコミュニティがwebアプリケーションでは少ないことがわかりました。HipHopアーティストの繋がりは、クラブやサイファーといったオフラインがメインとなります。しかし、コロナウイルス感染予防のため人との接触が避けられている状況下では音楽の共同制作の可能性は限られてしまいます。私は無名でも、本気じゃなくても、気軽にアーティスト同士が繋がれてもいいのではないかと思います。
+以上のことから、Def Styleを作成することを決めました。
+Def Styleの『Def』とはHipHop用語で『イケてる』という意味があります。自分と価値観や目的が近い人と是非繋がるツールとしてご利用ください。
+
+
+## :art: Character Design
+
+<p align="center">
+  <img src="https://i.gyazo.com/048d778f7972cc6c2bd63915b6731fba.jpg" width=70%>  
+</p>　
+
+
+## :movie_camera: Gif
+
+<a href="https://gyazo.com/73331196bdb6f1301cafaa2e8177251e"><img src="https://i.gyazo.com/73331196bdb6f1301cafaa2e8177251e.gif" alt="Image from Gyazo" width="1000"/></a>
+
+
 ## 🌐 App URL
 
-### **https://defstyle.herokuapp.com/**  
+### **https://defstyle.herokuapp.com/**
 
-https://i.gyazo.com/34171d74e096b91734664eaf98105c64.gif
+
+## :scroll:　Description
+作品はグラフティーアーティストなら画像を、それ以外のアーティストは自分で制作したyoutube_urlを投稿し、公開されている作品をを基に、実際に製作者とコンタクトをとることができます。
+また作った作品をアプリケーション内で販売することも可能です。
+
+
+
+## 📦 Features
+
+
+
+## Author
+* Taira Kanno
+* tairakannotaira@gmail.com
 
 ## users テーブル
 
