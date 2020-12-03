@@ -21,6 +21,7 @@ Def Styleの『Def』とはHipHop用語で『イケてる』という意味が�
 <a href="https://gyazo.com/73331196bdb6f1301cafaa2e8177251e"><img src="https://i.gyazo.com/73331196bdb6f1301cafaa2e8177251e.gif" alt="Image from Gyazo" width="1000"/></a>
 
 
+
 ## 🌐 App URL
 
 ### **https://defstyle.herokuapp.com/**
@@ -31,10 +32,15 @@ Def Styleの『Def』とはHipHop用語で『イケてる』という意味が�
 また作った作品をアプリケーション内で販売することも可能です。
 
 
-
 ## 📦 Features
+自分がこのアプリケーションの注目機能はいいね機能です。
+非同期通信でいいね機能を実装し、自分のいいねした作品を一覧でみれる点です。
 
+<a href="https://gyazo.com/a06d1d0b24838bd286352aa751d91c0b"><img src="https://i.gyazo.com/a06d1d0b24838bd286352aa751d91c0b.gif" alt="Image from Gyazo" width="1000"/></a>
 
+さらに気に入った作品にコメントするのとは別に、作者とUSERとの一対一のDM機能も実装しました。
+
+<a href="https://gyazo.com/c197fa5b065b3ff7585f6062eac1b573"><img src="https://i.gyazo.com/c197fa5b065b3ff7585f6062eac1b573.gif" alt="Image from Gyazo" width="1000"/></a>
 
 ## Author
 * Taira Kanno
