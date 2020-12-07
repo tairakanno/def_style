@@ -51,13 +51,14 @@ Def Styleの『Def』とはHipHop用語で『イケてる』という意味が�
 Ruby,javascript
 
 ## 利用したフレームワーク・ライブラリ
-Ruby on Rails
-Bootstrap
+Ruby on Rails,
+Bootstrap,
 jquery
 
 ## Uその他開発に使用したツール
-GitHub
+GitHub,
 Vim
+
 ## users テーブル
 
 | Column         | Type   | Options     |
