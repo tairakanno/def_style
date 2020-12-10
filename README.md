@@ -43,6 +43,10 @@ Def Styleの『Def』とはHipHop用語で『イケてる』という意味が�
 <a href="https://gyazo.com/c197fa5b065b3ff7585f6062eac1b573"><img src="https://i.gyazo.com/c197fa5b065b3ff7585f6062eac1b573.gif" alt="Image from Gyazo" width="1000"/></a>
 
 
+## basic認証
+ユーザー名：　admin
+パスワード：  2222
+
 ## Author
 * Taira Kanno
 * tairakannotaira@gmail.com
