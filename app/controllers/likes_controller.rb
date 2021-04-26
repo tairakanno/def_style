@@ -12,6 +12,9 @@ class LikesController < ApplicationController
     user = User.find(params[:user_id])
     @likes = user.like_opuses
   end
+  def 
+    
+  end
 
   private
   def like_params
